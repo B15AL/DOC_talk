@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:health_core/health_core.dart';
 
 import '../services/language_service.dart';
+import '../services/server_service.dart';
 import '../services/sms_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/consultation_view.dart';
@@ -29,6 +30,21 @@ class _HistoryScreenState extends State<HistoryScreen> {
     if (mounted) setState(() => _items = all);
   }
 
+  Future<void> _uploadUnsent() async {
+    var n = 0;
+    for (final c in (_items ?? const <Consultation>[]).where((c) => !c.synced)) {
+      if (!await ServerService.instance.upload(c)) break;
+      await StorageService.update(c.copyWith(synced: true));
+      n++;
+    }
+    await _load();
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(n > 0
+            ? LanguageService.t('uploaded_n').replaceAll('{n}', '$n')
+            : LanguageService.t('server_fail'))));
+  }
+
   Future<void> _open(Consultation c) async {
     await Navigator.push(
       context,
@@ -46,6 +62,15 @@ class _HistoryScreenState extends State<HistoryScreen> {
         title: Text(t('history')),
         backgroundColor: Colors.teal,
         foregroundColor: Colors.white,
+        actions: [
+          if (ServerService.instance.configured &&
+              (items ?? const <Consultation>[]).any((c) => !c.synced))
+            IconButton(
+              tooltip: t('upload_all'),
+              icon: const Icon(Icons.cloud_upload),
+              onPressed: _uploadUnsent,
+            ),
+        ],
       ),
       body: items == null
           ? const Center(child: CircularProgressIndicator())

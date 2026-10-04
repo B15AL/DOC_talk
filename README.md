@@ -1,62 +1,77 @@
-# Small AI Health Assistant
 
-An offline helper for community health workers. On an Android smartphone it
-works fully offline. Feature phones use it over SMS. It **suggests** next steps
-and never diagnoses; the health worker always makes the final decision.
+# Small AI Health Assistant (DOC_talk)
 
-```
-health_core/          Shared pure-Dart logic: questions, WHO-IMCI-style rules,
-                      Hindi/English text, keyword + AI extraction, SMS format
-health_ai_assistant/  Flutter Android app (offline, voice, history, optional AI model)
-sms_server/           SMS webhook server + terminal simulator for feature phones
-tools/llm_eval/       Desktop benchmark of on-device models (same runtime and prompt as the app)
-tools/finetune/       Synthetic data + LoRA fine-tune of Gemma 3 270M -> GGUF
-```
+**Offline-first AI helper for community health workers in rural areas.**
 
-## Run it
+Works fully offline on Android smartphones.  
+Feature phones use it over SMS.  
 
-```bash
-# Android app (phone connected with USB debugging, or an emulator)
-cd health_ai_assistant
-flutter pub get
-flutter run                       # or: flutter build apk --release
+It **suggests** next steps and possible referrals — it never diagnoses.  
+The final decision always stays with the human health worker.
 
-# Feature-phone demo without any SMS provider
-cd sms_server && dart pub get && dart run bin/simulate.dart
+> “This is only a suggestion. Please confirm with a clinician.”  
+> (Yeh sirf sujhav hai. Antim faisla aapka hai.)
 
-# Tests
-cd health_core && dart test
-cd health_ai_assistant && flutter test
-cd sms_server && dart test
-```
+---
 
-## App features
-- Choose the language (Hindi/English); every screen and question is translated.
-- Describe the patient by **voice or text**. Symptoms are understood by keywords,
-  plus the optional **on-device AI model**.
-- **The worker confirms what was understood** before any question is skipped.
-- One-tap Yes / No / Not sure questions, read aloud, with an undo button. Danger
-  signs are asked first.
-- Result: 🟢 routine / 🟠 clinician review / 🔴 urgent referral, with the reason
-  behind each suggestion and a disclaimer.
-- Nothing is saved until the worker confirms. A **history** screen lists past
-  consultations.
-- Send a short summary with no patient name by SMS (`HAI1 …`). The server decodes it.
+## How it works
 
-## On-device AI ("Smart AI")
-The model is **Gemma 3 270M, fine-tuned for this app** (`tools/finetune`): a
-~280 MB GGUF that runs offline through llama.cpp (`llamadart`) in about 0.5 s
-per note. General-purpose 0.5–1B models were benchmarked first
-(`tools/llm_eval`) and added more wrong findings than right ones, so they are
-not used.
+**Primary user**: Community Health Worker (ASHA / ANM)  
+**Secondary user**: Patient (can also use it)
 
-Home screen → Smart AI card → *Import model file*, or *Download* if the app was
-built with `--dart-define=AI_MODEL_URL=...`. The model only **pre-fills the
-form**. Its output is limited to the allowed fields, checked again in
-`health_core`, and **confirmed by the worker**. Rules and referrals never come
-from the AI. If the model is missing, too slow, or the phone is 32-bit, the app
-falls back to keyword matching.
+1. Health worker describes what they see/hear in the local language (voice or text).
+2. AI organizes the information, fills a simple structured form, and suggests possible things to check + referral options.
+3. Health worker confirms everything before anything is saved.
+4. Strong disclaimer is always shown.
 
-## Before real-world use
-Have a clinician review every rule and translation. Get consent. Encrypt
-stored data. Test on real low-end phones.
+---
+
+## Dual Mode Architecture
+
+### Mode 1: Android Smartphone (100% Offline)
+
+1. **First Install / Setup**
+   - App asks: “Apni bhasha chunein” (Choose your language)
+   - User selects language (Hindi / English — more languages later)
+   - App downloads the matching small language pack + quantized model
+   - After this, everything works offline
+
+2. **Normal Use (Fully Offline)**
+   - User speaks or types in the chosen language
+   - Local AI asks structured Yes/No/Not sure questions
+   - Generates clean Symptom Summary
+   - Shows safe next-step + referral suggestions with color coding:
+     - 🟢 Routine
+     - 🟠 Clinician review recommended
+     - 🔴 Urgent referral
+   - Strong disclaimer always shown
+   - Health worker confirms → saves locally (History screen)
+
+3. **Optional Background Sync**
+   - When signal is available → sends compressed summary via SMS to Server AI
+   - Server can improve future suggestions (no patient name is ever sent)
+
+### Mode 2: Feature Phone (SMS)
+
+1. User sends SMS in any language  
+   Example:  
+   - “I have fever for 3 days and cough”  
+   - “मुझे तीन दिन से बुखार है”
+
+2. Server AI (with Auto-Translate)
+   - Detects language
+   - Translates to internal working language
+   - Runs the same structured questioning logic
+   - Translates questions back to user’s language
+   - Sends Yes/No style SMS questions
+
+3. After answers, Server sends:
+   - Clean symptom summary (in user’s language)
+   - Safe suggestions + possible referral
+   - Clear disclaimer
+
+4. No AI model runs on the feature phone.
+
+---
+
+## Project Structure

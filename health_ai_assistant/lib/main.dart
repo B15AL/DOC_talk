@@ -4,6 +4,7 @@ import 'screens/home_screen.dart';
 import 'screens/language_selection_screen.dart';
 import 'services/ai_model_service.dart';
 import 'services/language_service.dart';
+import 'services/server_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,6 +13,7 @@ Future<void> main() async {
   // Only checks whether a model is already downloaded; loading into RAM
   // happens later, when a consultation starts.
   await AiModelService.instance.init();
+  await ServerService.instance.init();
   runApp(MyApp(languageChosen: saved != null));
 }
 

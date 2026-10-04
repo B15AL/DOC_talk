@@ -5,6 +5,7 @@ import 'package:health_core/health_core.dart';
 
 import '../services/ai_model_service.dart';
 import '../services/language_service.dart';
+import '../services/server_service.dart';
 import '../services/stt_service.dart';
 import '../services/tts_service.dart';
 import 'summary_screen.dart';
@@ -204,7 +205,11 @@ class _ConsultationScreenState extends State<ConsultationScreen> {
       messages.add(const _Msg(_Role.typing, ''));
     });
     _scrollDown();
-    final fromAi = aiModel.usable ? await aiModel.extract(text) : const <String, String>{};
+    // On-device model first; with internet and no local model, the server's.
+    final server = ServerService.instance;
+    final fromAi = aiModel.usable
+        ? await aiModel.extract(text)
+        : (server.configured ? await server.understand(text) : const <String, String>{});
     if (!mounted) return const [];
     final fromKeywords = SymptomExtractor.extract(text);
 
@@ -351,10 +356,10 @@ class _ConsultationScreenState extends State<ConsultationScreen> {
         backgroundColor: Colors.teal,
         foregroundColor: Colors.white,
         actions: [
-          if (aiModel.usable)
-            const Padding(
-              padding: EdgeInsets.only(right: 4),
-              child: Icon(Icons.auto_awesome, size: 20),
+          if (aiModel.usable || ServerService.instance.configured)
+            Padding(
+              padding: const EdgeInsets.only(right: 4),
+              child: Icon(aiModel.usable ? Icons.auto_awesome : Icons.cloud_outlined, size: 20),
             ),
           if (answeredAt.isNotEmpty && !finished)
             IconButton(icon: const Icon(Icons.undo), onPressed: _undo),

@@ -131,6 +131,20 @@ class Strings {
       's_some_dehydration':
           'Some dehydration: ORS Plan B — about 75 ml per kg over 4 hours at the health facility, then reassess. Zinc for children as per protocol.',
 
+      // Online server
+      'server_title': 'Online server (optional)',
+      'server_hint':
+          'Used only when there is internet: AI understanding if the model is not on this phone, and uploading saved consultations. Without it everything works offline.',
+      'server_url': 'Server address (e.g. https://….trycloudflare.com)',
+      'server_key': 'API key',
+      'server_save': 'Save & test',
+      'server_ok': 'Connected',
+      'server_ok_ai': 'Connected — AI is running on the server',
+      'server_fail': 'Could not connect to the server',
+      'uploaded': 'Uploaded to the server',
+      'upload_all': 'Upload unsent',
+      'uploaded_n': 'Uploaded {n} consultations',
+
       // Chat consultation
       'note_added_fever': '+ Added {n} checks because of the fever',
       'note_added_cough': '+ Added {n} breathing checks because of the cough',
@@ -332,6 +346,18 @@ class Strings {
           'गंभीर पानी की कमी। तुरंत रेफ़र करें; मरीज़ पी सके तो रास्ते में घूँट-घूँट ORS दें।',
       's_some_dehydration':
           'कुछ पानी की कमी: ORS प्लान B — स्वास्थ्य केंद्र पर 4 घंटे में लगभग 75 ml प्रति किलो, फिर दोबारा जाँचें। बच्चों को प्रोटोकॉल के अनुसार ज़िंक।',
+      'server_title': 'ऑनलाइन सर्वर (वैकल्पिक)',
+      'server_hint':
+          'सिर्फ़ इंटरनेट होने पर इस्तेमाल होता है: फ़ोन में मॉडल न हो तो AI समझ, और सेव की गई जाँचें अपलोड करना। इसके बिना सब ऑफ़लाइन चलता है।',
+      'server_url': 'सर्वर का पता (जैसे https://….trycloudflare.com)',
+      'server_key': 'API key',
+      'server_save': 'सेव करें और जाँचें',
+      'server_ok': 'जुड़ गया',
+      'server_ok_ai': 'जुड़ गया — सर्वर पर AI चल रहा है',
+      'server_fail': 'सर्वर से नहीं जुड़ पाया',
+      'uploaded': 'सर्वर पर अपलोड हो गया',
+      'upload_all': 'बची हुई अपलोड करें',
+      'uploaded_n': '{n} जाँचें अपलोड हुईं',
       'note_added_fever': '+ बुखार की वजह से {n} जाँचें जोड़ी गईं',
       'note_added_cough': '+ खाँसी की वजह से साँस की {n} जाँचें जोड़ी गईं',
       'note_added_diarrhea': '+ दस्त की वजह से पानी की कमी की {n} जाँचें जोड़ी गईं',

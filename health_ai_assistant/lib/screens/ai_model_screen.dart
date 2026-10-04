@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../services/ai_model_service.dart';
 import '../services/language_service.dart';
+import '../services/server_service.dart';
 
-/// Choose, download, test and delete the optional on-device AI model.
+/// Optional on-device AI model (import / download / delete) and the
+/// optional online server (AI for phones without the model + uploads).
 class AiModelScreen extends StatefulWidget {
   const AiModelScreen({super.key});
 
@@ -13,6 +15,31 @@ class AiModelScreen extends StatefulWidget {
 
 class _AiModelScreenState extends State<AiModelScreen> {
   final AiModelService ai = AiModelService.instance;
+  final ServerService server = ServerService.instance;
+  late final TextEditingController urlController = TextEditingController(text: server.url);
+  late final TextEditingController keyController = TextEditingController(text: server.apiKey);
+  bool testing = false;
+  bool? testResult;
+
+  @override
+  void dispose() {
+    urlController.dispose();
+    keyController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _saveServer() async {
+    FocusScope.of(context).unfocus();
+    setState(() => testing = true);
+    await server.save(urlController.text, keyController.text);
+    final ok = server.configured && await server.test();
+    if (mounted) {
+      setState(() {
+        testing = false;
+        testResult = server.configured ? ok : null;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,9 +82,64 @@ class _AiModelScreenState extends State<AiModelScreen> {
               const SizedBox(height: 12),
               _statusAndActions(),
             ],
+            const Divider(height: 40),
+            _serverSection(),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _serverSection() {
+    const t = LanguageService.t;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Row(
+          children: [
+            const Icon(Icons.cloud_outlined, color: Colors.teal),
+            const SizedBox(width: 8),
+            Text(t('server_title'),
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          ],
+        ),
+        const SizedBox(height: 6),
+        Text(t('server_hint'), style: const TextStyle(fontSize: 13, color: Colors.black54)),
+        const SizedBox(height: 12),
+        TextField(
+          controller: urlController,
+          keyboardType: TextInputType.url,
+          decoration: InputDecoration(
+            labelText: t('server_url'),
+            border: const OutlineInputBorder(),
+          ),
+        ),
+        const SizedBox(height: 10),
+        TextField(
+          controller: keyController,
+          obscureText: true,
+          decoration: InputDecoration(
+            labelText: t('server_key'),
+            border: const OutlineInputBorder(),
+          ),
+        ),
+        const SizedBox(height: 10),
+        OutlinedButton.icon(
+          icon: testing
+              ? const SizedBox(
+                  width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
+              : const Icon(Icons.wifi_tethering),
+          label: Text(t('server_save')),
+          onPressed: testing ? null : _saveServer,
+        ),
+        if (testResult != null) ...[
+          const SizedBox(height: 10),
+          testResult!
+              ? _statusBox(
+                  server.serverHasAi == true ? t('server_ok_ai') : t('server_ok'), Colors.green)
+              : _statusBox(t('server_fail'), Colors.red),
+        ],
+      ],
     );
   }
 

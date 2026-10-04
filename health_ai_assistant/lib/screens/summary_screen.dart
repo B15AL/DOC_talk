@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:health_core/health_core.dart';
 
 import '../services/language_service.dart';
+import '../services/server_service.dart';
 import '../services/sms_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/consultation_view.dart';
@@ -45,6 +46,15 @@ class _SummaryScreenState extends State<SummaryScreen> {
     setState(() => saved = true);
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(LanguageService.t('saved'))));
+    // With internet + server configured, upload right away (SMS stays
+    // available as the offline route).
+    if (await ServerService.instance.upload(consultation)) {
+      consultation = consultation.copyWith(synced: true);
+      await StorageService.update(consultation);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(LanguageService.t('uploaded'))));
+    }
   }
 
   Future<void> _shareSms() async {
