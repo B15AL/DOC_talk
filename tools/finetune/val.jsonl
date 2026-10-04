@@ -1,0 +1,300 @@
+{"note": "patient ko pet chal raha saath mein khoon nahi aa raha", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "isko ulti mein khoon, aur chakkar hai, aur koi baar baar latrine nahi, aur bukhaar bhi hai", "target": "{\"fever\":\"yes\"}"}
+{"note": "isko lagatar khansi nahi hai saath mein chakkar hai", "target": "{}"}
+{"note": "badan dard hai aur halka bukhar aur balgam wali khansi bhi hai", "target": "{\"fever\":\"yes\",\"cough\":\"yes\"}"}
+{"note": "she has does not have diarrhea with a cold with a cough present with has a fever", "target": "{\"fever\":\"yes\",\"cough\":\"yes\"}"}
+{"note": "बच्चे को बलगम वाली खांसी, बदन गरम", "target": "{\"fever\":\"yes\",\"cough\":\"yes\"}"}
+{"note": "my son has mild fever and coughing for two day", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "mareez ko zukaam hai saath mein dast hai", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "sukhi khansi saath mein paani jaisi tatti bhi hai saath mein tatti mein khoon hai", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "mareez ko khansi nahi hai, pichle teen mahine se tez bukhar ho raha hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "patient ko loose motion", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "She has diarrhea is not there, has a cough, body feels hot 2 days", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\"}"}
+{"note": "patient has no blood and no appetite and has loose motions", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "dadi ko char hafta se bukhaar aur khaansi hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "patient ko badan dard hai aur khansi ho raha hai aur loose motion hai aur koi badan garam nahi", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "he has has had a fever three day, blood in the stool, has loose motions", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "She has has loose motions, stool has no blood", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "No appetite, has had body feels hot for the last seven days", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "he has dry cough four weeks and loose motions present and blood in stools and a fever is not there", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_14_plus\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "patient has no fever, only dizziness", "target": "{}"}
+{"note": "he has temperature and blood in stools present and has watery stools", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "bachche ko koi badan garam nahi; sirf ulti mein khoon", "target": "{}"}
+{"note": "Vomiting", "target": "{}"}
+{"note": "patient ko diarrhea bhi hai aur tatti mein khoon nahi aur ulti hai", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "बच्चे को हल्का बुखार 6 दिन से साथ में सिर दर्द है", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\"}"}
+{"note": "dry cough present", "target": "{\"cough\":\"yes\"}"}
+{"note": "baccha ko pet dard hai, aur bukhaar, aur balgam wali khansi", "target": "{\"fever\":\"yes\",\"cough\":\"yes\"}"}
+{"note": "मरीज़ को दस्त", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "he has has had wet cough for the last 3 weeks, blood in the phlegm, dizziness", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "bachche ko lagatar khansi nahi; baar baar latrine nahi hai; bukhar aur thand nahi hai; sirf balgam mein khoon", "target": "{}"}
+{"note": "उसको खाँसी 2 महीने से, पेट दर्द है, नाक से खून", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "she has a cough is not there; only vomiting", "target": "{}"}
+{"note": "meri beti ko khaansi hai ek hafte se aur body feels hot ek din se", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "child has temperature is not there with only stomach pain", "target": "{}"}
+{"note": "dadi ko pichle pandrah din se khansi aur bukhaar hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "बच्ची को तेज़ बुखार नहीं है और सिर्फ़ जुकाम", "target": "{}"}
+{"note": "He has nosebleed and temperature since yesterday and a cold and has had dry cough for the last one weeks and diarrhoea", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "He has cough for the last four days and has blood in stools and no appetite and diarrhea present and does not have fever", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "My son has fever for the last seven day, does not have watery stools, vomiting", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "माँ को हल्का बुखार हो रहा है और पतले दस्त नहीं", "target": "{\"fever\":\"yes\"}"}
+{"note": "mareez ko halka bukhar ek mahine se, balgam wali khansi hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\"}"}
+{"note": "isko parso se bukhar aur khansi hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "बच्ची को ज्वर हो रहा है, दस्त हो रहा है, कोई खांसी नहीं है", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "patient has no appetite, has had a cough 4 week, loose stools, blood in the stool present", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_14_plus\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "Dizziness", "target": "{}"}
+{"note": "mareez ko parso se bukhar aur thand aur balgam wali khansi hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "Child has diarrhea present and does not have dry cough and mild fever for a month and bloody stools and dizziness", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "baccha ko patli tatti aur balgam wali khansi hai aur ulti mein khoon aur bhookh nahi lagti hai", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "child has denies watery stools, only a cold", "target": "{}"}
+{"note": "she has has coughing, has had temperature since this morning", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\"}"}
+{"note": "isko lagatar khansi hai 6 din se aur tez bukhar nahi", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "माँ को दस्त हो रहा है साथ में हल्का बुखार नहीं है साथ में भूख नहीं लगती है साथ में सूखी खांसी", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "Child has watery stools present with no blood with vomiting with has had high fever for 3 day", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\",\"diarrhea\":\"yes\"}"}
+{"note": "teen din se bukhaar ho raha hai, patli tatti bhi hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\",\"diarrhea\":\"yes\"}"}
+{"note": "bachche ko halka bukhar nahi saath mein sirf badan dard", "target": "{}"}
+{"note": "my son has a fever present with coughing is not there with body ache", "target": "{\"fever\":\"yes\"}"}
+{"note": "bachche ko bukhaar nahi hai, pet chal raha", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "बच्चे को आज सुबह से ज्वर और लगातार खाँसी है", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "meri beti ko ulti hai, bukhaar ho raha hai", "target": "{\"fever\":\"yes\"}"}
+{"note": "bachche ko badan garam bhi hai, tatti mein khoon nahi, balgam wali khansi bhi hai, dast", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "mareez ko patli tatti ho raha hai aur bukhar aur thand nahi aur lagatar khansi ho raha hai", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "no coughing, no body feels hot, only no appetite", "target": "{}"}
+{"note": "bachche ko koi khansi nahi, koi dast nahi, badan garam bilkul nahi hai, sirf badan dard", "target": "{}"}
+{"note": "she has denies a fever and loose motions is not there and dry cough is not there and only weakness", "target": "{}"}
+{"note": "मरीज़ को कोई लगातार खाँसी नहीं है साथ में बदन गरम है बीस दिन से साथ में जुकाम है साथ में दस्त में खून साथ में दस्त", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "मुझे कोई ज्वर नहीं है", "target": "{}"}
+{"note": "mareez ko daane hai, aur koi halka bukhar nahi, aur balgam wali khansi ho raha hai", "target": "{\"cough\":\"yes\"}"}
+{"note": "patient ko koi bukhar nahi saath mein koi balgam wali khansi nahi saath mein koi baar baar latrine nahi saath mein sirf chakkar", "target": "{}"}
+{"note": "child has does not have a cough; no watery stools; only stomach pain", "target": "{}"}
+{"note": "बच्ची को पानी जैसे दस्त है, तेज़ बुखार 6 दिन से, सिर दर्द है, बलगम वाली खांसी नहीं है", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\",\"diarrhea\":\"yes\"}"}
+{"note": "patient ko patli tatti nahi hai aur sirf ulti", "target": "{}"}
+{"note": "meri beti ko balgam wali khansi das din se aur pet chal raha nahi", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "baccha ko khansi nahi hai, aur paani jaisi tatti nahi hai, aur koi bukhar nahi, aur sirf balgam mein khoon", "target": "{}"}
+{"note": "meri beti ko lagatar khansi, aur pet chal raha bhi hai", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "patient has does not have watery stools, mild fever, coughing for the last six day", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "has had a cough since yesterday, has had high fever 5 day, blood in the phlegm", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "bachche ko sir dard hai, aur balgam wali khansi hai aaj subah se, aur bukhar aur thand 2 mahine se, aur pet chal raha bhi hai, aur potty mein khoon ho raha hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "she has body feels hot and dry cough for four month", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "बच्चे को तीन दिन से लगातार खाँसी है साथ में सिर दर्द है साथ में तेज बुखार एक महीने से", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "tatti mein khoon hai aur dast bhi hai aur khansi hai aur badan dard hai", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "baccha ko zukaam hai aur tez bukhar hai bees din se", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "mareez ko tez bukhar bilkul nahi hai saath mein patli tatti", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "खाँसी, दस्त है", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "patient ko sukhi khansi saath mein halka bukhar nahi hai", "target": "{\"cough\":\"yes\"}"}
+{"note": "she has has temperature, loose motions", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "Patient has mild fever one week with wet cough 4 months with weakness with stool has no blood with watery stools", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_14_plus\",\"diarrhea\":\"yes\"}"}
+{"note": "bachche ko badan dard hai saath mein bukhar aur thand nahi", "target": "{}"}
+{"note": "मुझे बदन दर्द है, बलगम वाली खांसी कल से", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "coughing for the last seven day with diarrhoea with dizziness", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "meri beti ko balgam mein khoon, aur badan garam ek mahine se, aur badan dard hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "बच्ची को तेज़ बुखार हो रहा है", "target": "{\"fever\":\"yes\"}"}
+{"note": "patient ko body feels hot 7 din se, sukhi khansi nahi, bhookh nahi lagti hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "mareez ko khaansi pichle hafte se aur bhookh nahi lagti hai aur bukhaar 15 din se aur paani jaisi tatti nahi", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "mareez ko parso se tez bukhar ho raha hai aur daane hai aur blood in stools ho raha hai aur ulti mein khoon aur loose motion", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "he has vomiting and body feels hot is not there and diarrhoea present", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "baccha ko pet chal raha ho raha hai", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "बच्ची को जुकाम है और बुखार है", "target": "{\"fever\":\"yes\"}"}
+{"note": "Loose stools, no blood in stool", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "my son has blood when spitting and dizziness and a fever present", "target": "{\"fever\":\"yes\"}"}
+{"note": "he has dry cough four day, loose stools present", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "bachche ko khaansi nahi, aur ek hafte se bukhar ho raha hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "he has has a fever with wet cough for the last 2 weeks with no blood with watery stools present", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"cough_days\":\"c_14_plus\",\"diarrhea\":\"yes\"}"}
+{"note": "baccha ko chakkar hai aur bukhar hai aur patli tatti hai", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "dadi ko loose motion hai, aur tatti mein khoon nahi", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "child has diarrhoea present and dizziness and stool has no blood", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "Patient has loose motions with stomach pain", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "bachche ko khansi ek hafte se, thook mein khoon, chakkar hai, tez bukhar nahi hai, paani jaisi tatti bhi hai", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "मरीज़ को तेज बुखार है, दस्त नहीं, दस दिन से बलगम वाली खांसी है", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "मुझे लगातार खाँसी हो रहा है, पेट दर्द है", "target": "{\"cough\":\"yes\"}"}
+{"note": "has had a cough for seven day and a rash and loose motions present and mild fever for the last two days", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "Patient has no appetite, has had temperature for the last one month, wet cough present", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\"}"}
+{"note": "बच्ची को बार बार दस्त हो रहा है, पेट दर्द है", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "she has wet cough is not there and only stomach pain", "target": "{}"}
+{"note": "she has no watery stools", "target": "{}"}
+{"note": "dadi ko 1 din se balgam wali khansi aur bukhaar hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "vomiting, high fever for seven days, coughing is not there", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "meri beti ko badan garam pichle das din se, ulti mein khoon, patli tatti nahi, bhookh nahi lagti hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "बच्ची को सिर दर्द है साथ में कोई तेज़ बुखार नहीं है साथ में मल में खून है साथ में बलगम वाली खांसी है 10 दिन से साथ में बार बार दस्त हो रहा है", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "मरीज़ को खांसी नहीं साथ में चक्कर है साथ में बुखार छह दिन से", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\"}"}
+{"note": "khansi bhi hai, 15 din se tez bukhar hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\"}"}
+{"note": "मरीज़ को कोई पतले दस्त नहीं है साथ में 4 हफ़्ते से ज्वर है साथ में कमज़ोरी है", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "baccha ko bukhar ho raha hai aur dry cough kaafi dino se aur baar baar latrine nahi aur ulti hai", "target": "{\"fever\":\"yes\",\"cough\":\"yes\"}"}
+{"note": "Child has diarrhea present and dizziness and fever for 2 day", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"diarrhea\":\"yes\"}"}
+{"note": "बच्ची को बार बार दस्त है साथ में सूखी खांसी नहीं है साथ में नाक से खून साथ में दस्त में खून हो रहा है", "target": "{\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "मुझे कोई दस्त नहीं है साथ में खाँसी हो रहा है साथ में नाक से खून साथ में सिर दर्द है साथ में तेज़ बुखार है 1 हफ्ते से", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\"}"}
+{"note": "माँ को मल में खून नहीं और दस्त हो रहा है और लगातार खाँसी है 1 महीने से", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_14_plus\",\"diarrhea\":\"yes\"}"}
+{"note": "child has diarrhoea and mild fever for the last six days and blood in vomit and bloody stools", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "जुकाम है साथ में मल में खून नहीं साथ में बार बार दस्त है", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "he has has had high fever for the last 10 days, has watery stools", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"diarrhea\":\"yes\"}"}
+{"note": "Patient has high fever since yesterday, diarrhoea, dry cough present, stomach pain", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "patient has temperature is not there with headache", "target": "{}"}
+{"note": "बच्चे को टट्टी में खून साथ में लगातार खाँसी हो रहा है साथ में बदन गरम नहीं साथ में दस्त", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "He has nosebleed with denies coughing with temperature present", "target": "{\"fever\":\"yes\"}"}
+{"note": "pichle do din se bukhar hai saath mein dast mein khoon hai saath mein diarrhoea hai saath mein badan dard hai saath mein wet cough hai pichle hafte se", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "Patient has diarrhoea with bloody stools present with has body feels hot", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "उसको दस्त साथ में कोई खांसी नहीं है साथ में जुकाम है", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "She has diarrhea present and has cough and bloody stools present", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "मरीज़ को पतले दस्त और सिर दर्द है और नाक से खून और तेज बुखार नहीं है", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "माँ को ज्वर बीस दिन से", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "koi bukhar nahi aur paani jaisi tatti bilkul nahi hai aur sirf pet dard", "target": "{}"}
+{"note": "bachche ko tatti mein khoon bhi hai saath mein bukhar aur thand bhi hai saath mein pet chal raha hai", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "मरीज़ को सिर दर्द है और पतली टट्टी है और उल्टी में खून और आज सुबह से लगातार खाँसी है और खून नहीं है", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "meri beti ko koi badan garam nahi, sirf thook mein khoon", "target": "{}"}
+{"note": "meri beti ko 1 hafta se a cough ho raha hai, sir dard hai, halka bukhar teen hafte se", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "तीन दिन से हल्का बुखार और खाँसी है", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "मुझे पतले दस्त हो रहा है", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "मुझे बदन दर्द है, खाँसी है", "target": "{\"cough\":\"yes\"}"}
+{"note": "माँ को पतली टट्टी है", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "does not have loose motions and does not have mild fever and denies a cough and only blood in vomit", "target": "{}"}
+{"note": "मरीज़ को एक दिन से बलगम वाली खांसी और बुखार है", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "patient has does not have loose stools with cough present with a fever since this morning", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\"}"}
+{"note": "patient ko bukhar das din se, badan dard hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "dadi ko parso se balgam wali khansi hai aur tatti mein khoon ho raha hai aur loose stools", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "बार बार दस्त है और उल्टी में खून और तेज बुखार 4 दिन से और खाँसी नहीं और दस्त में खून और सिर दर्द है", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "child has no a fever and diarrhea and body ache and has had wet cough 3 week", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_14_plus\",\"diarrhea\":\"yes\"}"}
+{"note": "माँ को बार बार दस्त हो रहा है और तेज़ बुखार हो रहा है", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "mareez ko patli tatti bhi hai, aur kamzori hai, aur khansi nahi, aur tatti mein khoon nahi, aur balgam mein khoon, aur tez bukhar bhi hai", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "mareez ko bukhar aur thand bilkul nahi hai aur sirf pet dard", "target": "{}"}
+{"note": "dadi ko body feels hot pichle 20 din se", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "patient has wet cough present with blood in vomit with no blood with body feels hot present with loose motions present", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "Child has has watery stools and a cold", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "he has mild fever present and loose motions present and nosebleed and no cough", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "dadi ko khansi hai pichle 3 mahine se, aur paani jaisi tatti nahi hai", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "does not have diarrhoea and dry cough is not there", "target": "{}"}
+{"note": "ulti mein khoon saath mein sukhi khansi 1 hafta se saath mein zukaam hai", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "patient ko badan garam hai pichle 3 din se aur patli tatti bilkul nahi hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\"}"}
+{"note": "koi tez bukhar nahi, aur a cough bhi hai, aur sir dard hai", "target": "{\"cough\":\"yes\"}"}
+{"note": "meri beti ko lagatar khansi bilkul nahi hai saath mein paani jaisi tatti bilkul nahi hai saath mein sirf zukaam", "target": "{}"}
+{"note": "बच्ची को पतली टट्टी हो रहा है और खाँसी है 10 दिन से", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "baccha ko balgam wali khansi nahi hai, patli tatti nahi, koi bukhar nahi, sirf pet dard", "target": "{}"}
+{"note": "मरीज़ को कोई तेज बुखार नहीं है और कमज़ोरी है", "target": "{}"}
+{"note": "माँ को उल्टी है, पानी जैसे दस्त है, बुखार", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "she has does not have a fever and no diarrhoea and does not have coughing and only vomiting", "target": "{}"}
+{"note": "मरीज़ को उल्टी में खून", "target": "{}"}
+{"note": "उसको बलगम में खून, चक्कर है, तेज बुखार, खाँसी", "target": "{\"fever\":\"yes\",\"cough\":\"yes\"}"}
+{"note": "patient ko bukhar bhi hai, thook mein khoon, ulti hai, baar baar latrine nahi", "target": "{\"fever\":\"yes\"}"}
+{"note": "he has denies body feels hot; only blood in vomit", "target": "{}"}
+{"note": "patient ko pichle 3 hafta se balgam wali khansi ho raha hai, bukhar aur thand hai teen mahine se", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "child has has a fever", "target": "{\"fever\":\"yes\"}"}
+{"note": "baccha ko daane hai saath mein coughing ho raha hai saath mein paani jaisi tatti bilkul nahi hai", "target": "{\"cough\":\"yes\"}"}
+{"note": "मुझे 10 दिन से खाँसी और बदन गरम है", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "बच्ची को ज्वर साथ में उल्टी है साथ में बलगम वाली खांसी नहीं", "target": "{\"fever\":\"yes\"}"}
+{"note": "baccha ko lagatar khansi hai saath mein temperature bhi hai", "target": "{\"fever\":\"yes\",\"cough\":\"yes\"}"}
+{"note": "baccha ko wet cough, diarrhoea ho raha hai, badan dard hai", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "has loose stools with stool has no blood with dizziness", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "He has no blood with has loose stools with wet cough", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "child has has loose motions, temperature, no blood in stool, wet cough for the last seven day", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "meri beti ko watery stools bhi hai aur sukhi khansi bhi hai", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "patient ko bukhar hai kaafi dino se saath mein pet chal raha", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "उसको खांसी 6 दिन से, दो हफ्ते से बुखार है, बार बार दस्त नहीं", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "a fever is not there, coughing for a while", "target": "{\"cough\":\"yes\"}"}
+{"note": "baccha ko ulti hai saath mein bukhaar hai saath mein khoon nahi hai saath mein baar baar latrine bhi hai saath mein sukhi khansi bhi hai", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "child has does not have mild fever", "target": "{}"}
+{"note": "मुझे मल में खून नहीं और बदन दर्द है और हल्का बुखार हो रहा है और खाँसी हो रहा है और पतली टट्टी है", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "bachche ko pet chal raha ho raha hai aur pichle 6 din se khansi ho raha hai aur kamzori hai aur khoon nahi hai", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "patient ko ulti hai saath mein balgam wali khansi hai pichle char din se", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "mareez ko balgam mein khoon, paani jaisi tatti ho raha hai, bukhaar bilkul nahi hai", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "बच्चे को दो हफ़्ते से खाँसी और बदन गरम है", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "A cold with has watery stools with temperature present", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "he has loose motions present and body ache", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "बार बार दस्त नहीं, भूख नहीं लगती है, खांसी", "target": "{\"cough\":\"yes\"}"}
+{"note": "patient ko patli tatti nahi hai", "target": "{}"}
+{"note": "माँ को कोई खांसी नहीं है, बदन गरम है", "target": "{\"fever\":\"yes\"}"}
+{"note": "meri beti ko bukhar aur thand nahi hai, pichle teen hafte se lagatar khansi ho raha hai", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "मरीज़ को चक्कर है साथ में तेज बुखार है कल से", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\"}"}
+{"note": "he has watery stools is not there", "target": "{}"}
+{"note": "dadi ko paani jaisi tatti hai, a fever pichle ek hafte se, dast mein khoon ho raha hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "child has does not have temperature with vomiting with diarrhoea", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "माँ को सूखी खांसी है और कमज़ोरी है और बदन गरम और बार बार दस्त", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "माँ को बुखार नहीं है साथ में कोई दस्त नहीं है साथ में सिर्फ़ भूख नहीं लगती", "target": "{}"}
+{"note": "loose motion nahi, sirf bhookh nahi lagti", "target": "{}"}
+{"note": "meri beti ko lagatar khansi hai ek hafte se, aur badan dard hai", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "dadi ko patli tatti ho raha hai, koi tez bukhar nahi", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "He has a rash with a fever 5 days", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\"}"}
+{"note": "she has weakness", "target": "{}"}
+{"note": "no appetite with high fever three month", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "she has wet cough since yesterday and watery stools and mild fever", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "he has blood when spitting with wet cough with has had temperature for one days", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\"}"}
+{"note": "dadi ko char din se sukhi khansi aur halka bukhar hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "उसको सिर दर्द है साथ में कोई तेज बुखार नहीं है", "target": "{}"}
+{"note": "मुझे कोई लगातार खाँसी नहीं है और काफ़ी दिनों से बुखार है", "target": "{\"fever\":\"yes\"}"}
+{"note": "meri beti ko patli tatti nahi hai aur high fever hai pichle do hafta se", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "child has denies coughing, has blood in the stool, body feels hot since yesterday, has loose motions, blood when spitting", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "child has has high fever with body ache", "target": "{\"fever\":\"yes\"}"}
+{"note": "no diarrhoea; only blood when spitting", "target": "{}"}
+{"note": "child has cough and mild fever since yesterday", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "dadi ko tatti mein khoon ho raha hai aur kamzori hai aur koi sukhi khansi nahi aur loose stools aur pichle 4 hafte se halka bukhar hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "बच्चे को पतले दस्त है साथ में बदन गरम नहीं है साथ में बलगम वाली खांसी 1 हफ्ते से साथ में बलगम में खून", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "high fever and diarrhea and denies a cough", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "meri beti ko badan garam hai pichle 1 mahine se, aur baar baar latrine nahi, aur cough bhi hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\"}"}
+{"note": "child has temperature and a cough for one weeks", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "meri beti ko kamzori hai, aur pichle teen hafta se wet cough hai, aur patli tatti nahi", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "Child has has watery stools", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "patient ko badan dard hai saath mein badan garam hai 7 din se", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "patient has no cough, body feels hot is not there, only blood in vomit", "target": "{}"}
+{"note": "बच्ची को लगातार खाँसी है तीन महीने से और हल्का बुखार 3 दिन से", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\",\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "माँ को खांसी हो रहा है साथ में कोई बार बार दस्त नहीं है साथ में तेज़ बुखार हो रहा है साथ में सिर दर्द है", "target": "{\"fever\":\"yes\",\"cough\":\"yes\"}"}
+{"note": "मरीज़ को पतली टट्टी हो रहा है साथ में लगातार खाँसी है कल से साथ में उल्टी है", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "baccha ko tatti mein khoon hai, pet chal raha ho raha hai", "target": "{\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "कमज़ोरी है, सूखी खांसी है चार दिन से, खून नहीं है, पतली टट्टी है, तेज बुखार है", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "my son has a fever for twenty day", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "my son has denies diarrhoea and denies body feels hot and only blood when spitting", "target": "{}"}
+{"note": "isko aaj subah se lagatar khansi ho raha hai", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "isko paani jaisi tatti bhi hai, aur balgam wali khansi hai pichle char din se, aur 4 din se badan garam ho raha hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "child has high fever and coughing one days", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "she has dizziness, diarrhea present, a fever, cough for the last 3 months", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"cough_days\":\"c_14_plus\",\"diarrhea\":\"yes\"}"}
+{"note": "isko dast nahi, sirf kamzori", "target": "{}"}
+{"note": "patient ko khansi bhi hai aur 1 hafta se bukhar aur thand hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\"}"}
+{"note": "meri beti ko ulti hai, tatti mein khoon nahi, cough hai ek hafte se, patli tatti hai, char hafta se halka bukhar ho raha hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "bachche ko loose motion nahi hai, kal se balgam wali khansi ho raha hai, tez bukhar ho raha hai, chakkar hai", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "He has stool has no blood with a cough for 10 day with diarrhea present with vomiting", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "उसको कोई बलगम वाली खांसी नहीं है और दस्त है और मल में खून है और बदन गरम है", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "उसको चक्कर है साथ में खाँसी है साथ में दस्त हो रहा है साथ में कल से ज्वर है", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "बच्ची को बार बार दस्त हो रहा है साथ में दस्त में खून हो रहा है साथ में कोई बुखार नहीं है", "target": "{\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "माँ को उल्टी है साथ में खांसी", "target": "{\"cough\":\"yes\"}"}
+{"note": "पतले दस्त हो रहा है और खाँसी है बीस दिन से और खून नहीं है और बदन दर्द है", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_14_plus\",\"diarrhea\":\"yes\"}"}
+{"note": "She has no appetite with denies temperature with wet cough", "target": "{\"cough\":\"yes\"}"}
+{"note": "मरीज़ को पतले दस्त और 7 दिन से खांसी है और पेट दर्द है", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\",\"diarrhea\":\"yes\"}"}
+{"note": "She has a cold, dry cough present", "target": "{\"cough\":\"yes\"}"}
+{"note": "पतले दस्त नहीं", "target": "{}"}
+{"note": "उसको खाँसी है", "target": "{\"cough\":\"yes\"}"}
+{"note": "sir dard hai aur thook mein khoon aur 3 mahina se bukhar ho raha hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "he has does not have high fever, coughing since yesterday", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "बच्ची को खांसी और पतले दस्त", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "She has temperature present and loose motions present", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "बलगम में खून साथ में तेज़ बुखार", "target": "{\"fever\":\"yes\"}"}
+{"note": "उसको ज्वर और दस्त हो रहा है और सिर दर्द है", "target": "{\"fever\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "mareez ko koi sukhi khansi nahi saath mein sirf pet dard", "target": "{}"}
+{"note": "माँ को 1 महीने से सूखी खांसी है साथ में ज्वर हो रहा है साथ में कोई पानी जैसे दस्त नहीं है", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "baccha ko sir dard hai, bukhar bhi hai, patli tatti nahi hai, balgam wali khansi", "target": "{\"fever\":\"yes\",\"cough\":\"yes\"}"}
+{"note": "माँ को बलगम में खून और सूखी खांसी और तेज बुखार है 10 दिन से", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\"}"}
+{"note": "बच्चे को तेज़ बुखार नहीं है", "target": "{}"}
+{"note": "He has mild fever since yesterday, diarrhoea", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\",\"diarrhea\":\"yes\"}"}
+{"note": "baccha ko baar baar latrine nahi saath mein koi halka bukhar nahi", "target": "{}"}
+{"note": "patli tatti nahi saath mein high fever hai pichle 1 din se saath mein daane hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\"}"}
+{"note": "child has wet cough present and has diarrhoea and stool has no blood and no appetite and has a fever", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "isko zukaam hai, tatti mein khoon hai, loose stools hai", "target": "{\"diarrhea\":\"yes\",\"blood_in_stool\":\"yes\"}"}
+{"note": "मरीज़ को 5 दिन से बदन गरम है साथ में बलगम वाली खांसी है दस दिन से", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "बच्चे को सूखी खांसी दो महीने से और जुकाम है और बदन गरम नहीं", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "मुझे उल्टी में खून, खाँसी, दस्त है, बदन गरम हो रहा है", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "bachche ko daane hai, aur koi tez bukhar nahi", "target": "{}"}
+{"note": "मरीज़ को बार बार दस्त और भूख नहीं लगती है", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "no loose motions; only vomiting", "target": "{}"}
+{"note": "he has temperature present with denies coughing", "target": "{\"fever\":\"yes\"}"}
+{"note": "बच्चे को कोई तेज़ बुखार नहीं है, सूखी खांसी नहीं, पानी जैसे दस्त नहीं है, सिर्फ़ बलगम में खून", "target": "{}"}
+{"note": "he has fever and dry cough four week", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "child has diarrhoea present and body ache and no body feels hot", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "उसको बुखार", "target": "{\"fever\":\"yes\"}"}
+{"note": "she has has watery stools and dry cough is not there and stomach pain", "target": "{\"diarrhea\":\"yes\"}"}
+{"note": "उसको सूखी खांसी पंद्रह दिन से साथ में भूख नहीं लगती है साथ में कोई बदन गरम नहीं है", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_14_plus\"}"}
+{"note": "my son has weakness with diarrhea with dry cough present with no blood", "target": "{\"cough\":\"yes\",\"diarrhea\":\"yes\"}"}
+{"note": "baccha ko ulti hai, aur fever ek mahine se, aur patli tatti nahi", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\"}"}
+{"note": "he has dizziness, no temperature", "target": "{}"}
+{"note": "मुझे बुखार है परसों से, कोई दस्त नहीं है", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_1_2\"}"}
+{"note": "मुझे बदन गरम है, कोई पानी जैसे दस्त नहीं है, कमज़ोरी है, लगातार खाँसी है परसों से", "target": "{\"fever\":\"yes\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "मरीज़ को मल में खून नहीं और बलगम वाली खांसी है 2 हफ़्ते से और उल्टी में खून और बार बार दस्त और जुकाम है", "target": "{\"cough\":\"yes\",\"cough_days\":\"c_14_plus\",\"diarrhea\":\"yes\"}"}
+{"note": "मरीज़ को लगातार खाँसी नहीं, बदन दर्द है", "target": "{}"}
+{"note": "उसको ज्वर हो रहा है, भूख नहीं लगती है", "target": "{\"fever\":\"yes\"}"}
+{"note": "baccha ko pichle 10 din se sukhi khansi aur halka bukhar hai", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_7_plus\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}
+{"note": "मरीज़ को 3 दिन से सूखी खांसी और हल्का बुखार है", "target": "{\"fever\":\"yes\",\"fever_days\":\"d_3_6\",\"cough\":\"yes\",\"cough_days\":\"c_lt_14\"}"}

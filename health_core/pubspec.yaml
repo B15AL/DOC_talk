@@ -1,0 +1,13 @@
+name: health_core
+description: >-
+  Shared, pure-Dart triage logic (questions, rules, language packs, SMS codec)
+  used by both the Android app and the SMS server so they always agree.
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: ^3.5.0
+
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^5.0.0

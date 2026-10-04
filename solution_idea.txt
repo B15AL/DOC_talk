@@ -1,0 +1,56 @@
+The AI should work like this:
+
+Health worker (or Noor) describes what they see/hear in the local language (voice or text).
+AI helps organize that information, fills a simple form, or suggests “possible things to check / possible referral options”.
+AI always ends with something like:
+“This is only a suggestion. Please confirm with a clinician.”
+Final decision stays with the human.
+
+SMALL AI HEALTH ASSISTANT – DUAL MODE (Updated)
+Primary User: Health Worker (Patient can also use)
+Core: Offline-first on Android + SMS for Feature phones
+
+==================================================
+MODE 1: ANDROID SMARTPHONE
+==================================================
+
+1. First Install / Setup
+   - App asks: “Apni bhasha chunein” (Choose your language)
+   - User selects language (Hindi / others later)
+   - App downloads the matching small language pack + quantized model
+   - After this, everything works offline
+
+2. Normal Use (100% Offline)
+   - User speaks or types in the chosen language
+   - Local AI asks structured Yes/No questions
+   - Generates clean Symptom Summary
+   - Shows safe next-step + referral suggestions
+   - Strong disclaimer: “Yeh sirf sujhav hai. Antim faisla aapka hai.”
+   - Health worker confirms → saves locally
+
+3. Optional Background Sync
+   - When signal available → sends compressed summary via SMS to Server AI
+   - Server can improve future suggestions
+
+==================================================
+MODE 2: FEATURE PHONE (SMS)
+==================================================
+
+1. User sends SMS in any language
+   Example: “I have fever for 3 days and cough” 
+   or “मुझे तीन दिन से बुखार है”
+
+2. Server AI (with Auto-Translate)
+   - Detects language
+   - Translates to internal working language
+   - Runs the same structured questioning logic
+   - Translates questions back to user’s language
+   - Sends Yes/No style SMS questions
+
+3. After answers
+   - Server sends:
+     • Clean symptom summary (in user’s language)
+     • Safe suggestions + possible referral
+     • Clear disclaimer
+
+4. No AI model runs on the feature phone

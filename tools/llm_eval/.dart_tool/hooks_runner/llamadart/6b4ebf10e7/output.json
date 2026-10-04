@@ -1,0 +1,167 @@
+{
+  "assets": [
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libggml-base.so",
+        "id": "package:llamadart/ggml-base",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libggml-base.so.0",
+        "id": "package:llamadart/ggml-base_2",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libggml-cpu.so",
+        "id": "package:llamadart/ggml-cpu",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libggml-cpu.so.0",
+        "id": "package:llamadart/ggml-cpu_2",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libggml-vulkan.so",
+        "id": "package:llamadart/ggml-vulkan",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libggml-vulkan.so.0",
+        "id": "package:llamadart/ggml-vulkan_2",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libggml.so",
+        "id": "package:llamadart/ggml",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libggml.so.0",
+        "id": "package:llamadart/ggml_2",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libllama-common.so",
+        "id": "package:llamadart/llama-common",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libllama-common.so.0",
+        "id": "package:llamadart/llama-common_2",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libllama.so",
+        "id": "package:llamadart/llama",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libllama.so.0",
+        "id": "package:llamadart/llama_2",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libllamadart.so",
+        "id": "package:llamadart/llamadart",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libllamadart.so.0",
+        "id": "package:llamadart/llamadart_2",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libmtmd.so",
+        "id": "package:llamadart/mtmd",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    },
+    {
+      "encoding": {
+        "file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/6b4ebf10e7/llamadart_bin/libmtmd.so.0",
+        "id": "package:llamadart/mtmd_2",
+        "link_mode": {
+          "type": "dynamic_loading_bundle"
+        }
+      },
+      "type": "code_assets/code"
+    }
+  ],
+  "assets_for_linking": {},
+  "status": "success",
+  "timestamp": "2026-10-04 04:41:03.000"
+}

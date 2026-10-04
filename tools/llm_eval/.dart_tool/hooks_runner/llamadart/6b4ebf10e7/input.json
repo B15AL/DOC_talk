@@ -1,0 +1,30 @@
+{
+  "assets": {},
+  "config": {
+    "build_asset_types": [
+      "code_assets/code"
+    ],
+    "extensions": {
+      "code_assets": {
+        "link_mode_preference": "dynamic",
+        "target_architecture": "x64",
+        "target_os": "linux"
+      }
+    },
+    "linking_enabled": false
+  },
+  "out_dir_shared": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/shared/llamadart/build/",
+  "out_file": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/llamadart/6b4ebf10e7/output.json",
+  "package_name": "llamadart",
+  "package_root": "/home/bishal-roy/.pub-cache/hosted/pub.dev/llamadart-0.10.0/",
+  "user_defines": {
+    "workspace_pubspec": {
+      "base_path": "/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/pubspec.yaml",
+      "defines": {
+        "llamadart_native_runtimes": [
+          "llama_cpp"
+        ]
+      }
+    }
+  }
+}

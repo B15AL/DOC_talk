@@ -1,0 +1,38 @@
+name: health_ai_assistant
+description: "Offline-first health worker assistant (rule-based triage, local language)."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.7
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Add your packages here (correct place)
+  health_core:
+    path: ../health_core
+  shared_preferences: ^2.2.3
+  path_provider: ^2.1.2
+  flutter_tts: ^4.0.2
+  speech_to_text: ^7.5.0
+  url_launcher: ^6.3.0
+  llamadart: ^0.10.0
+  file_picker: ^13.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+# On-device AI: ship only the llama.cpp (GGUF) runtime. Android uses CPU
+# (+ Vulkan) — enough for 0.6B–1B models and keeps the APK smaller.
+hooks:
+  user_defines:
+    llamadart:
+      llamadart_native_runtimes: [llama_cpp]

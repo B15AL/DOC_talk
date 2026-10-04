@@ -1,0 +1,19 @@
+name: sms_server
+description: >-
+  SMS triage server for feature phones. Runs the same health_core rules as
+  the Android app, one Yes/No question per SMS.
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  health_core:
+    path: ../health_core
+  shelf: ^1.4.0
+  shelf_router: ^1.1.0
+
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^5.0.0

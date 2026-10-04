@@ -1,0 +1,75 @@
+Running `(cd /home/bishal-roy/.pub-cache/hosted/pub.dev/llamadart-0.10.0/; HOME=/home/bishal-roy ANDROID_HOME=/opt/android-sdk PATH=/opt/android-sdk/cmdline-tools/latest/bin:/home/bishal-roy/development/flutter/bin:/home/bishal-roy/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl /home/bishal-roy/development/flutter/bin/cache/dart-sdk/bin/dart --packages=/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/package_config.json /home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/llamadart/6b4ebf10e7/hook.dill --config=/home/bishal-roy/work/extra_bakchodi/hackNationGlobal/tools/llm_eval/.dart_tool/hooks_runner/llamadart/6b4ebf10e7/input.json )`.
+INFO: 2026-10-04 04:41:03.990883: Hook Start: linux-x64
+
+INFO: 2026-10-04 04:41:03.997524: Selected native runtimes: llama_cpp.
+
+INFO: 2026-10-04 04:41:04.000387: Using native runtime source: leehack/llamadart-native@v0.5.0
+
+INFO: 2026-10-04 04:41:04.013144: Downloading native bundle: https://github.com/leehack/llamadart-native/releases/download/v0.5.0/llamadart-native-linux-x64-v0.5.0.tar.gz
+
+INFO: 2026-10-04 04:42:20.326594: Saved native bundle to /home/bishal-roy/.pub-cache/hosted/pub.dev/llamadart-0.10.0/.dart_tool/llamadart/native_bundles/v0.5.0/linux-x64/llamadart-native-linux-x64-v0.5.0.tar.gz
+
+FINE: 2026-10-04 04:42:21.610453: Materialized archive symlink libggml.so.0 as a copy of libggml.so.0.25.1.
+
+FINE: 2026-10-04 04:42:21.612032: Materialized archive symlink libmtmd.so.0 as a copy of libmtmd.so.0.5.0.
+
+FINE: 2026-10-04 04:42:21.615882: Materialized archive symlink libllama-common.so as a copy of libllama-common.so.0.5.0.
+
+FINE: 2026-10-04 04:42:21.619633: Materialized archive symlink libllama.so.0 as a copy of libllama.so.0.5.0.
+
+FINE: 2026-10-04 04:42:21.622303: Materialized archive symlink libllama-common.so.0 as a copy of libllama-common.so.0.5.0.
+
+FINE: 2026-10-04 04:42:21.623329: Materialized archive symlink libggml-base.so as a copy of libggml-base.so.0.25.1.
+
+FINE: 2026-10-04 04:42:21.624995: Materialized archive symlink libmtmd.so as a copy of libmtmd.so.0.5.0.
+
+FINE: 2026-10-04 04:42:21.627391: Materialized archive symlink libllama.so as a copy of libllama.so.0.5.0.
+
+FINE: 2026-10-04 04:42:21.627793: Materialized archive symlink libggml.so as a copy of libggml.so.0.25.1.
+
+FINE: 2026-10-04 04:42:21.628632: Materialized archive symlink libggml-base.so.0 as a copy of libggml-base.so.0.25.1.
+
+INFO: 2026-10-04 04:42:21.631951: Extracted native bundle to /home/bishal-roy/.pub-cache/hosted/pub.dev/llamadart-0.10.0/.dart_tool/llamadart/native_bundles/v0.5.0/linux-x64/extracted
+
+WARNING: 2026-10-04 04:42:21.638007: Duplicate library filename detected, skipping: libggml-base.so.0
+
+WARNING: 2026-10-04 04:42:21.649781: Duplicate library filename detected, skipping: libggml.so.0
+
+WARNING: 2026-10-04 04:42:21.651808: Duplicate library filename detected, skipping: libllama-common.so.0
+
+WARNING: 2026-10-04 04:42:21.653714: Duplicate library filename detected, skipping: libllama.so.0
+
+WARNING: 2026-10-04 04:42:21.654936: Duplicate library filename detected, skipping: libmtmd.so.0
+
+INFO: 2026-10-04 04:42:21.658019: Reporting native library `libggml-base.so` as code asset `package:llamadart/ggml-base`.
+
+INFO: 2026-10-04 04:42:21.658550: Reporting native library `libggml-base.so.0` as code asset `package:llamadart/ggml-base_2`.
+
+INFO: 2026-10-04 04:42:21.658761: Reporting native library `libggml-cpu.so` as code asset `package:llamadart/ggml-cpu`.
+
+INFO: 2026-10-04 04:42:21.658890: Reporting native library `libggml-cpu.so.0` as code asset `package:llamadart/ggml-cpu_2`.
+
+INFO: 2026-10-04 04:42:21.659021: Reporting native library `libggml-vulkan.so` as code asset `package:llamadart/ggml-vulkan`.
+
+INFO: 2026-10-04 04:42:21.659149: Reporting native library `libggml-vulkan.so.0` as code asset `package:llamadart/ggml-vulkan_2`.
+
+INFO: 2026-10-04 04:42:21.659316: Reporting native library `libggml.so` as code asset `package:llamadart/ggml`.
+
+INFO: 2026-10-04 04:42:21.659449: Reporting native library `libggml.so.0` as code asset `package:llamadart/ggml_2`.
+
+INFO: 2026-10-04 04:42:21.659572: Reporting native library `libllama-common.so` as code asset `package:llamadart/llama-common`.
+
+INFO: 2026-10-04 04:42:21.659694: Reporting native library `libllama-common.so.0` as code asset `package:llamadart/llama-common_2`.
+
+INFO: 2026-10-04 04:42:21.659826: Reporting native library `libllama.so` as code asset `package:llamadart/llama`.
+
+INFO: 2026-10-04 04:42:21.659941: Reporting native library `libllama.so.0` as code asset `package:llamadart/llama_2`.
+
+INFO: 2026-10-04 04:42:21.660052: Reporting native library `libllamadart.so` as code asset `package:llamadart/llamadart`.
+
+INFO: 2026-10-04 04:42:21.660166: Reporting native library `libllamadart.so.0` as code asset `package:llamadart/llamadart_2`.
+
+INFO: 2026-10-04 04:42:21.660304: Reporting native library `libmtmd.so` as code asset `package:llamadart/mtmd`.
+
+INFO: 2026-10-04 04:42:21.660433: Reporting native library `libmtmd.so.0` as code asset `package:llamadart/mtmd_2`.
+

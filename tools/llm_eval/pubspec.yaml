@@ -1,0 +1,13 @@
+name: llm_eval
+description: Desktop check of on-device model candidates on the real extraction prompt.
+publish_to: 'none'
+environment:
+  sdk: ^3.10.7
+dependencies:
+  health_core:
+    path: ../../health_core
+  llamadart: ^0.10.0
+hooks:
+  user_defines:
+    llamadart:
+      llamadart_native_runtimes: [llama_cpp]

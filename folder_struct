@@ -1,0 +1,25 @@
+health_ai_assistant/
+├── lib/
+│   ├── main.dart
+│   ├── screens/
+│   │   ├── language_selection_screen.dart
+│   │   ├── home_screen.dart
+│   │   ├── consultation_screen.dart
+│   │   └── summary_screen.dart
+│   ├── services/
+│   │   ├── language_service.dart
+│   │   ├── stt_service.dart          # Speech-to-Text
+│   │   ├── tts_service.dart          # Text-to-Speech
+│   │   ├── local_ai_service.dart     # Local model
+│   │   └── sms_service.dart
+│   ├── models/
+│   │   └── consultation_model.dart
+│   ├── widgets/
+│   │   ├── yes_no_buttons.dart
+│   │   └── voice_button.dart
+│   └── utils/
+│       └── constants.dart
+├── assets/
+│   └── models/                       # Will store downloaded models
+├── pubspec.yaml
+└── ...
