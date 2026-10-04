@@ -75,3 +75,47 @@ The final decision always stays with the human health worker.
 ---
 
 ## Project Structure
+
+health_core/          Shared pure-Dart logic: questions, WHO-IMCI-style rules,
+Hindi/English text, keyword + AI extraction, SMS format
+health_ai_assistant/  Flutter Android app (offline, voice, history, optional AI model)
+sms_server/           SMS webhook server + terminal simulator for feature phones
+tools/llm_eval/       Desktop benchmark of on-device models
+tools/finetune/       Synthetic data + LoRA fine-tune of Gemma 3 270M → GGUF
+
+
+
+---
+
+## Run it
+
+```bash
+# Android app (phone connected with USB debugging, or an emulator)
+cd health_ai_assistant
+flutter pub get
+flutter run                       # or: flutter build apk --release
+
+# Feature-phone demo without any SMS provider
+cd sms_server && dart pub get && dart run bin/simulate.dart
+
+# Tests
+cd health_core && dart test
+cd health_ai_assistant && flutter test
+cd sms_server && dart test
+
+
+# Install the APK
+cd health_ai_assistant/build/app/outputs/flutter-apk/
+# Install: app-arm64-v8a-release.apk
+
+# Install the custom AI model
+cd tools/finetune
+# Install the .gguf file: health-extractor-270m-q8_0.gguf
+
+
+## Before real-world use
+
+Have a clinician review every rule and translation
+Get proper consent
+Encrypt stored data
+Test thoroughly on real low-end phones
