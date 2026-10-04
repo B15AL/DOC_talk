@@ -18,6 +18,11 @@ class ReportStore {
   Future<void> saveConsultation(String from, Consultation c) => _append(
       'sms_consultations.jsonl', {'from': maskPhone(from), ...c.toJson()});
 
+  /// Consultation uploaded by the Android app over the internet.
+  Future<void> saveUploadedConsultation(Consultation c, {String? device}) => _append(
+      'app_consultations.jsonl',
+      {'device': device, 'receivedAt': DateTime.now().toIso8601String(), ...c.toJson()});
+
   Future<void> saveAppReport(String from, Map<String, String> decoded, DateTime at) =>
       _append('app_reports.jsonl', {
         'from': maskPhone(from),

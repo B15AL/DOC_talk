@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:health_core/health_core.dart';
 
+import 'ai_extractor.dart';
 import 'report_store.dart';
 
 /// One feature-phone conversation, keyed by phone number.
@@ -34,12 +35,16 @@ class ConversationManager {
   final Map<String, _Session> _sessions = {};
   final Random _random = Random.secure();
 
-  ConversationManager(this.store);
+  /// Understands free text: AI model (if loaded) + keywords.
+  final CombinedExtractor extractor;
+
+  ConversationManager(this.store, {this.extractor = const CombinedExtractor()});
 
   static final RegExp _devanagari = RegExp(r'[ऀ-ॿ]');
   static const _hinglishWords = {
     'bukhar', 'bukhaar', 'khansi', 'khaansi', 'dast', 'hai', 'mujhe', 'bacche',
-    'bachche', 'nahi', 'din', 'se', 'ko', 'haan',
+    'bachche', 'nahi', 'din', 'se', 'ko', 'haan', 'baccha', 'bachcha', 'paani',
+    'pet', 'raha', 'rahi', 'rahe', 'ho', 'kal', 'aur', 'bhi', 'mein',
   };
 
   static String detectLanguage(String text) {
@@ -77,16 +82,34 @@ class ConversationManager {
     if (session == null || restart) {
       final lang = forcedLang ?? session?.lang ?? detectLanguage(msg);
       final description = restart ? '' : msg;
-      session = _Session(lang, description, now)..ai.prefillFromText(description);
+      session = _Session(lang, description, now)
+        ..ai.prefill(await extractor.extract(description));
       _sessions[from] = session;
       return [_ask(session, intro: Strings.of(lang, 'sms_welcome'))];
     }
 
     session.lastActive = now;
     final q = session.current!;
-    final value = parseAnswer(q, msg);
+    var value = parseAnswer(q, msg);
     if (value == null) {
-      return [_ask(session, intro: Strings.of(session.lang, 'sms_invalid'))];
+      // Free text ("haan, 5 din se dast"): understand it like the app does.
+      final before = session.ai.answers.keys.toSet();
+      session.ai.prefill(await extractor.extract(msg));
+      if (session.ai.prefilled.contains(q.id)) {
+        value = session.ai.answers.remove(q.id);
+        session.ai.prefilled.remove(q.id);
+      }
+      final learned = session.ai.answers.keys.any((k) => !before.contains(k));
+      if (value == null) {
+        if (!learned) {
+          return [_ask(session, intro: Strings.of(session.lang, 'sms_invalid'))];
+        }
+        if (session.ai.nextQuestion() == null) {
+          _sessions.remove(from);
+          return [await _finish(from, session, now)];
+        }
+        return [_ask(session)];
+      }
     }
     session.ai.answer(q.id, value);
     session.lastAnswer = value;

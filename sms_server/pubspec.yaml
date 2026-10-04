@@ -6,14 +6,21 @@ publish_to: 'none'
 version: 1.0.0
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.10.7
 
 dependencies:
   health_core:
     path: ../health_core
   shelf: ^1.4.0
   shelf_router: ^1.1.0
+  llamadart: ^0.10.0
 
 dev_dependencies:
   test: ^1.25.0
   lints: ^5.0.0
+
+# Only the llama.cpp (GGUF) runtime is needed for the extractor model.
+hooks:
+  user_defines:
+    llamadart:
+      llamadart_native_runtimes: [llama_cpp]

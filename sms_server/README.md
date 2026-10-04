@@ -1,37 +1,55 @@
-# SMS server (feature-phone mode)
+# Health AI server (SMS + app)
 
-Runs the **same triage rules** as the Android app (`../health_core`), one
-question per SMS, answered by number.
+One server for both channels, running the **same rules** (`../health_core`)
+and the **same fine-tuned AI model** as the Android app.
 
-```
+```bash
 dart pub get
-dart run bin/simulate.dart     # chat in the terminal, no gateway needed (demo)
-dart run bin/server.dart       # HTTP server on $PORT (default 8080)
 dart test
+
+# Demo without any SMS provider (add MODEL_PATH to use the AI)
+MODEL_PATH=../tools/finetune/health-extractor-270m-q8_0.gguf dart run bin/simulate.dart
+
+# Server
+MODEL_PATH=../tools/finetune/health-extractor-270m-q8_0.gguf \
+API_KEY=choose-a-secret PORT=8080 dart run bin/server.dart
 ```
 
-## Conversation
-1. First SMS = free description in Hindi/Hinglish/English, e.g. `3 din se bukhar hai`.
-   Language is detected (Devanagari or Hinglish words → Hindi, else English) and
-   symptoms mentioned are pre-filled.
-2. Server asks the remaining questions: `1=Yes 2=No 3=Not sure` (words like
-   `haan` / `nahi` also work). Danger sign = yes → stops and sends URGENT referral.
-3. Final SMS: triage level, top 3 suggestions, disclaimer.
-4. `0` restarts, `HINDI` / `ENGLISH` switches language. Sessions expire after 30 min.
-5. Reports from the app (`HAI1 ...`) are decoded and stored separately.
-
-Finished consultations go to `$DATA_DIR/sms_consultations.jsonl`, app reports to
-`app_reports.jsonl`. Phone numbers are masked to the last 4 digits.
-
-## Connecting a real SMS number
-| Endpoint | Use with |
+| Env | Meaning |
 |---|---|
-| `POST /sms/incoming` `{"from","text"}` → `{"replies":[...]}` | Android phone running an SMS-gateway app (cheapest for a pilot — a ₹10/day SIM), MSG91, Gupshup; write a tiny adapter if the field names differ |
-| `POST /sms/twilio` | Twilio "A message comes in" webhook (returns TwiML) |
+| `MODEL_PATH` | fine-tuned `.gguf`. Without it the server uses keyword matching only |
+| `API_KEY` | required `x-api-key` header for `/api/*` (the app). Set it! |
+| `PORT`, `DATA_DIR` | default `8080`, `./data` |
 
-For a local demo, expose the server with a tunnel (e.g. `cloudflared tunnel --url http://localhost:8080`).
+## Endpoints
+**Feature phones (SMS gateways):**
+- `POST /sms/incoming` `{"from","text"}` → `{"replies":[...]}`
+- `POST /sms/twilio` (Twilio webhook, replies with TwiML)
 
-## Before real use
-- Sessions are in memory: use Redis/DB if you run more than one instance.
-- Hindi SMS are Unicode (70 chars per segment), so the final message is ~4–6 segments — budget for it.
-- Store data encrypted, get consent, and have a clinician review all rules and text.
+**Android app** (`x-api-key` header):
+- `GET /api/status` → `{"ai": true}`
+- `POST /api/understand` `{"text"}` → `{"findings":{...},"aiOnly":[...]}`. Used by
+  phones that don't have the model on the device.
+- `POST /api/consultations` (Consultation JSON). Saved consultations are uploaded here.
+
+## Connecting the app
+In the app: Smart AI → **Online server**. Enter the server address and the API
+key, then tap **Save & test**.
+- Same Wi-Fi: `http://<laptop-ip>:8080` (find the IP with `ip addr`)
+- Internet: `cloudflared tunnel --url http://localhost:8080` and use the https address
+
+## Connecting a real SMS number (Twilio)
+Use the tunnel address + `/sms/twilio` as the number's "A message comes in" webhook (POST).
+
+## SMS conversation
+1. First SMS = description in Hindi/Hinglish/English (`3 din se bukhar hai`). The
+   language is detected, and the AI + keywords pre-fill what was said.
+2. Questions come one per SMS, answered by number or in words. The order and
+   the added checks follow what was understood, the same as in the app. A
+   danger sign stops the questions and sends an URGENT referral.
+3. The final SMS has the triage level, the top advice and a disclaimer. `0`
+   restarts, and `HINDI` / `ENGLISH` switches language.
+
+Data is saved in `data/*.jsonl`, with phone numbers masked. Before real use:
+add a database with encryption, get consent, and have a clinician review all
+rules and text.

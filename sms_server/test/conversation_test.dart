@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:health_core/health_core.dart';
 import 'package:shelf/shelf.dart';
+import 'package:sms_server/ai_extractor.dart';
 import 'package:sms_server/conversation.dart';
 import 'package:sms_server/report_store.dart';
 import 'package:sms_server/server.dart';
@@ -104,4 +105,68 @@ void main() {
         Request('POST', Uri.parse('http://x/sms/incoming'), body: 'nope'));
     expect(bad.statusCode, 400);
   });
+
+  group('AI on the server', () {
+    // Stands in for the GGUF model: understands one phrase keywords miss.
+    final fakeModel = _FakeModel({'paani jaisa latrine': {'diarrhea': 'yes'}});
+
+    test('SMS: AI understands what keywords miss, in the first message', () async {
+      cm = ConversationManager(ReportStore(tmp.path),
+          extractor: CombinedExtractor(model: fakeModel));
+      await chat(['baccha: paani jaisa latrine', '2']); // age 2 months–5 years
+      // Diarrhoea understood -> its follow-up comes next.
+      final reply = await chat(['2']); // blood in stool: no
+      expect(reply, contains(Strings.of('hi', 'because_diarrhea')));
+    });
+
+    test('SMS: free-text reply answers the question and adds findings', () async {
+      cm = ConversationManager(ReportStore(tmp.path),
+          extractor: CombinedExtractor(model: fakeModel));
+      await chat(['help', '3']); // no description, age > 5
+      final reply = await chat(['haan aur paani jaisa latrine bhi']); // "unconscious?" -> yes
+      expect(reply, contains('URGENT'));
+    });
+
+    test('API: understand, auth and upload', () async {
+      cm = ConversationManager(ReportStore(tmp.path),
+          extractor: CombinedExtractor(model: fakeModel));
+      final handler = buildHandler(cm, apiKey: 'secret');
+      Request post(String path, Object body, {String? key}) => Request(
+          'POST', Uri.parse('http://x/$path'),
+          body: jsonEncode(body), headers: {if (key != null) 'x-api-key': key});
+
+      expect((await handler(post('api/understand', {'text': 'x'}))).statusCode, 401);
+
+      final res = await handler(
+          post('api/understand', {'text': 'bukhar aur paani jaisa latrine'}, key: 'secret'));
+      final body = jsonDecode(await res.readAsString());
+      expect(body['findings'], {'diarrhea': 'yes', 'fever': 'yes'});
+      expect(body['aiOnly'], ['diarrhea']);
+
+      final c = Consultation(
+        id: 'abc123-1', createdAt: DateTime(2026), languageCode: 'en', freeText: '',
+        answers: const {'fever': 'yes'}, level: TriageLevel.routine, suggestions: const [],
+      );
+      final up = await handler(post('api/consultations', c.toJson(), key: 'secret'));
+      expect(up.statusCode, 200);
+      expect(File('${tmp.path}/app_consultations.jsonl').readAsStringSync(), contains('abc123-1'));
+
+      // SMS webhooks stay open for gateways.
+      final sms = await handler(post('sms/incoming', {'from': '+1', 'text': 'hi'}));
+      expect(sms.statusCode, 200);
+    });
+  });
+}
+
+class _FakeModel implements AnswerExtractor {
+  final Map<String, Map<String, String>> known;
+  _FakeModel(this.known);
+
+  @override
+  Future<Map<String, String>> extract(String text) async {
+    for (final e in known.entries) {
+      if (text.contains(e.key)) return e.value;
+    }
+    return const {};
+  }
 }
