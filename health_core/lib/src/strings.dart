@@ -4,6 +4,10 @@
 class Strings {
   static const fallbackLanguage = 'en';
 
+  /// True if [lang] (or the fallback) has text for [key].
+  static bool has(String lang, String key) =>
+      _packs[lang]?.containsKey(key) == true || _packs[fallbackLanguage]!.containsKey(key);
+
   static String of(String lang, String key) =>
       _packs[lang]?[key] ?? _packs[fallbackLanguage]![key] ?? key;
 
@@ -30,7 +34,6 @@ class Strings {
       'new_consultation': 'New consultation',
       'describe_title': 'Describe what you see or hear',
       'describe_hint': 'e.g. "Child has fever for 3 days and cough"',
-      'start_questions': 'Start questions',
       'listening': 'Listening… tap again to stop',
       'mic_unavailable': 'Voice input not available on this phone. Please type.',
       'yes': 'Yes',
@@ -75,9 +78,6 @@ class Strings {
       'ai_status_failed': 'Error',
       'ai_ram_warning': 'This phone may not have enough memory for this model.',
       'ai_phone_ram': 'Phone memory',
-      'ai_try': 'Try it',
-      'ai_try_button': 'Understand',
-      'ai_nothing': 'No symptoms understood.',
       'ai_keywords': 'Keyword mode',
       'ai_note':
           'Trained for this app on Hindi, Hinglish and English notes. About 280 MB; works on phones with 2 GB+ memory.',
@@ -86,9 +86,99 @@ class Strings {
           'No internet? Copy the .gguf file to this phone (USB cable, Bluetooth, SD card) and pick it here.',
       'ai_status_importing': 'Copying model…',
       'understanding': 'Understanding the description…',
-      'confirm_understood': 'Understood from the description',
-      'confirm_understood_hint':
-          'Untick anything that is wrong. Unticked items will be asked as questions.',
+
+      // Checks added at runtime
+      'q_fever_stiff_neck': 'Is the neck stiff (cannot bend the chin to the chest)?',
+      'q_fever_rash': 'Is there a rash all over the body (with red eyes or runny nose)?',
+      'q_malaria_test': 'Was a malaria rapid test (RDT) done? What was the result?',
+      'opt_rdt_positive': 'Positive',
+      'opt_rdt_negative': 'Negative',
+      'opt_rdt_not_done': 'Not done',
+      'q_cough_fast_breathing':
+          'Count breaths for one full minute. Is it fast? (2–12 months: 50 or more, 1–5 years: 40 or more, older: 30 or more)',
+      'q_chest_indrawing': 'Does the lower chest pull in when breathing in (chest indrawing)?',
+      'q_tb_symptoms': 'Is there weight loss, night sweats, or blood in the cough?',
+      'q_dehyd_sunken_eyes': 'Are the eyes sunken?',
+      'q_dehyd_thirsty': 'Is the patient very thirsty, drinking eagerly?',
+      'q_dehyd_skin_pinch': 'Pinch the skin of the belly. How does it go back?',
+      'opt_pinch_normal': 'Immediately',
+      'opt_pinch_slow': 'Slowly',
+      'opt_pinch_very_slow': 'Very slowly (2+ seconds)',
+      'q_dehyd_restless': 'Is the patient restless or irritable?',
+      'q_dehyd_thirsty_child': 'Is the child very thirsty, drinking eagerly?',
+      'q_dehyd_restless_child': 'Is the child restless or irritable?',
+      'because_cough_days': 'Since the cough is 2 weeks or longer, please check:',
+
+      // Treatment / referral advice (rules, WHO IMCI)
+      's_unsure_check': 'Some checks were "not sure". Please get a clinician to examine the patient.',
+      's_stiff_neck': 'Fever with stiff neck: possible meningitis. Refer URGENTLY.',
+      's_measles':
+          'Fever with rash: possible measles. Keep away from other children, give vitamin A as per protocol, and get a clinician review.',
+      's_malaria_positive':
+          'Malaria test positive: start antimalarial treatment as per the national protocol (clinician to confirm the medicine and dose). Refer if any danger sign appears.',
+      's_malaria_negative': 'Malaria test negative: look for other causes of the fever.',
+      's_fever_care':
+          'For high fever: paracetamol by weight as per protocol, sponge with lukewarm water, give plenty of fluids.',
+      's_severe_pneumonia':
+          'Chest indrawing: possible severe pneumonia. Refer URGENTLY; give the first antibiotic dose if your protocol allows.',
+      's_infant_fast_breathing': 'Fast breathing in a baby under 2 months. Refer URGENTLY.',
+      's_pneumonia':
+          'Fast breathing: possible pneumonia. Oral amoxicillin as per your protocol (clinician to confirm the dose); follow up in 2–3 days.',
+      's_cough_home':
+          'Cough without fast breathing: likely a cough or cold. Warm fluids; honey only for children over 1 year. Return if breathing becomes fast or difficult.',
+      's_severe_dehydration':
+          'SEVERE dehydration. Refer URGENTLY; if the patient can drink, give ORS sips on the way.',
+      's_some_dehydration':
+          'Some dehydration: ORS Plan B — about 75 ml per kg over 4 hours at the health facility, then reassess. Zinc for children as per protocol.',
+
+      // Chat consultation
+      'note_added_fever': '+ Added {n} checks because of the fever',
+      'note_added_cough': '+ Added {n} breathing checks because of the cough',
+      'note_added_diarrhea': '+ Added {n} dehydration checks because of the loose motions',
+      'note_added_cough_days': '+ Added a TB check because the cough is long',
+      'note_skipped': '✓ Skipping {n} questions — already understood',
+      'note_level': '⚠ Assessment changed: {level}',
+      'note_advice': '💊 Advice updated: {text}',
+      'assessment_title': 'Live assessment',
+      'chat_start':
+          'Tell me about the patient — what do you see or hear? Type, or tap the mic.',
+      'chat_understood': 'From what you said, I understood:',
+      'chat_understood_hint': 'Tap ✕ on anything that is wrong.',
+      'chat_also_understood': 'Also noted:',
+      'chat_nothing': "I couldn't pick out symptoms from that, so I'll ask step by step.",
+      'chat_not_understood':
+          "Sorry, I didn't get that. Tap one of the options below, or say it in other words.",
+      'chat_removed': "Removed — I'll ask about it.",
+      'chat_input_hint': 'Type your answer…',
+      'chat_skip_describe': 'Skip — just ask me',
+      'chat_done': 'Thank you. Preparing the summary…',
+      'label_fever': 'Fever',
+      'label_fever_days': 'Fever for',
+      'label_cough': 'Cough',
+      'label_cough_days': 'Cough for',
+      'label_diarrhea': 'Loose motions',
+      'label_blood_in_stool': 'Blood in stool',
+      'ack_yes_1': 'Okay, noted.',
+      'ack_yes_2': 'Understood.',
+      'ack_no_1': 'Okay.',
+      'ack_no_2': 'Alright.',
+      'ack_unsure': "No problem, I'll keep that in mind.",
+      'ack_choice': 'Thanks.',
+      'ds_intro': 'Now a few important safety questions.',
+      'qc_fever_days': 'You mentioned fever. For how many days has it been there?',
+      'qc_cough_days': 'You mentioned a cough. For how long has it been there?',
+      'qc_blood_in_stool': 'You mentioned loose motions. Is there any blood in the stool?',
+      'because_fever': 'Since there is fever, please check:',
+      'because_cough': 'Since there is a cough, please check:',
+      'because_diarrhea': 'With loose motions, please check:',
+      'q_ds_unconscious_child': 'Is the child unconscious, very drowsy or not responding?',
+      'q_ds_convulsions_child': 'Has the child had fits (convulsions)?',
+      'q_ds_cannot_drink_child': 'Is the child unable to drink or breastfeed?',
+      'q_ds_vomits_everything_child': 'Does the child vomit everything they eat or drink?',
+      'q_ds_breathing_child': "Is the child's breathing very difficult or very fast?",
+      'q_fever_child': 'Does the child have fever?',
+      'q_cough_child': 'Does the child have a cough?',
+      'q_diarrhea_child': 'Does the child have loose motions?',
 
       // SMS conversation (feature phones)
       'sms_welcome': 'Health Assistant. Answer by number.',
@@ -130,7 +220,7 @@ class Strings {
       's_cough_tb': 'Cough for 2 weeks or more. Refer for TB testing as per the local programme.',
       's_blood_stool': 'Blood in stool. Clinician review needed.',
       's_diarrhea_ors':
-          'Give ORS (and zinc for children) as per your protocol. Watch for dehydration: sunken eyes, very thirsty, skin pinch goes back slowly.',
+          'No dehydration: ORS Plan A at home — ORS after every loose stool, extra fluids, keep feeding; zinc for children for 10–14 days as per protocol.',
       's_common_checks':
           'Check temperature, breathing rate and oxygen level (if a pulse oximeter is available).',
       's_routine_observe':
@@ -148,7 +238,6 @@ class Strings {
       'new_consultation': 'नई जाँच',
       'describe_title': 'जो दिख या सुनाई दे रहा है, बताइए',
       'describe_hint': 'जैसे: "बच्चे को 3 दिन से बुखार और खाँसी है"',
-      'start_questions': 'सवाल शुरू करें',
       'listening': 'सुन रहे हैं… रोकने के लिए फिर दबाएँ',
       'mic_unavailable': 'इस फ़ोन पर आवाज़ से लिखना उपलब्ध नहीं है। कृपया टाइप करें।',
       'yes': 'हाँ',
@@ -193,9 +282,6 @@ class Strings {
       'ai_status_failed': 'गड़बड़ी',
       'ai_ram_warning': 'इस फ़ोन में इस मॉडल के लिए शायद पर्याप्त मेमोरी नहीं है।',
       'ai_phone_ram': 'फ़ोन की मेमोरी',
-      'ai_try': 'आज़माएँ',
-      'ai_try_button': 'समझें',
-      'ai_nothing': 'कोई लक्षण समझ नहीं आया।',
       'ai_keywords': 'कीवर्ड मोड',
       'ai_note':
           'इस ऐप के लिए हिंदी, हिंग्लिश और अंग्रेज़ी नोट्स पर ट्रेन किया गया। लगभग 280 MB; 2 GB+ मेमोरी वाले फ़ोन पर चलता है।',
@@ -204,8 +290,93 @@ class Strings {
           'इंटरनेट नहीं है? .gguf फ़ाइल को USB, ब्लूटूथ या SD कार्ड से इस फ़ोन में कॉपी करें और यहाँ चुनें।',
       'ai_status_importing': 'मॉडल कॉपी हो रहा है…',
       'understanding': 'विवरण समझ रहे हैं…',
-      'confirm_understood': 'विवरण से यह समझा गया',
-      'confirm_understood_hint': 'जो गलत है उसका निशान हटाएँ। उनके बारे में सवाल पूछे जाएँगे।',
+
+      'q_fever_stiff_neck': 'क्या गर्दन अकड़ी हुई है (ठुड्डी छाती तक नहीं झुकती)?',
+      'q_fever_rash': 'क्या पूरे शरीर पर दाने हैं (लाल आँखें या नाक बहने के साथ)?',
+      'q_malaria_test': 'क्या मलेरिया रैपिड टेस्ट (RDT) हुआ? नतीजा क्या था?',
+      'opt_rdt_positive': 'पॉज़िटिव',
+      'opt_rdt_negative': 'नेगेटिव',
+      'opt_rdt_not_done': 'नहीं हुआ',
+      'q_cough_fast_breathing':
+          'एक पूरे मिनट साँसें गिनें। क्या साँस तेज़ है? (2–12 महीने: 50 या ज़्यादा, 1–5 साल: 40 या ज़्यादा, बड़े: 30 या ज़्यादा)',
+      'q_chest_indrawing': 'क्या साँस लेते समय छाती का निचला हिस्सा अंदर धँसता है?',
+      'q_tb_symptoms': 'क्या वज़न घटा है, रात को पसीना आता है, या खाँसी में खून आता है?',
+      'q_dehyd_sunken_eyes': 'क्या आँखें धँसी हुई हैं?',
+      'q_dehyd_thirsty': 'क्या मरीज़ को बहुत प्यास लग रही है, जल्दी-जल्दी पी रहा है?',
+      'q_dehyd_skin_pinch': 'पेट की त्वचा को चुटकी से उठाएँ। वह कैसे वापस जाती है?',
+      'opt_pinch_normal': 'तुरंत',
+      'opt_pinch_slow': 'धीरे',
+      'opt_pinch_very_slow': 'बहुत धीरे (2+ सेकंड)',
+      'q_dehyd_restless': 'क्या मरीज़ बेचैन या चिड़चिड़ा है?',
+      'q_dehyd_thirsty_child': 'क्या बच्चे को बहुत प्यास लग रही है, जल्दी-जल्दी पी रहा है?',
+      'q_dehyd_restless_child': 'क्या बच्चा बेचैन या चिड़चिड़ा है?',
+      'because_cough_days': 'खाँसी 2 हफ़्ते या ज़्यादा से है, इसलिए यह देखना ज़रूरी है:',
+
+      's_unsure_check': 'कुछ जाँचों का जवाब "पक्का नहीं" था। कृपया डॉक्टर से मरीज़ की जाँच करवाएँ।',
+      's_stiff_neck': 'बुखार के साथ गर्दन अकड़ी है: मेनिनजाइटिस हो सकता है। तुरंत रेफ़र करें।',
+      's_measles':
+          'बुखार के साथ दाने: खसरा हो सकता है। दूसरे बच्चों से दूर रखें, प्रोटोकॉल के अनुसार विटामिन A दें, और डॉक्टर से जाँच करवाएँ।',
+      's_malaria_positive':
+          'मलेरिया टेस्ट पॉज़िटिव: राष्ट्रीय प्रोटोकॉल के अनुसार मलेरिया की दवा शुरू करें (दवा और खुराक डॉक्टर से पक्की करें)। खतरे का कोई लक्षण दिखे तो रेफ़र करें।',
+      's_malaria_negative': 'मलेरिया टेस्ट नेगेटिव: बुखार के दूसरे कारण देखें।',
+      's_fever_care':
+          'तेज़ बुखार में: प्रोटोकॉल के अनुसार वज़न से पैरासिटामोल, गुनगुने पानी से पोंछें, खूब तरल दें।',
+      's_severe_pneumonia':
+          'छाती धँसना: गंभीर निमोनिया हो सकता है। तुरंत रेफ़र करें; प्रोटोकॉल अनुमति दे तो एंटीबायोटिक की पहली खुराक दें।',
+      's_infant_fast_breathing': '2 महीने से छोटे बच्चे की साँस तेज़ है। तुरंत रेफ़र करें।',
+      's_pneumonia':
+          'तेज़ साँस: निमोनिया हो सकता है। प्रोटोकॉल के अनुसार अमोक्सिसिलिन (खुराक डॉक्टर से पक्की करें); 2–3 दिन में दोबारा देखें।',
+      's_cough_home':
+          'तेज़ साँस के बिना खाँसी: शायद सर्दी-खाँसी है। गुनगुना पानी दें; शहद सिर्फ़ 1 साल से बड़े बच्चों को। साँस तेज़ या मुश्किल हो तो वापस आएँ।',
+      's_severe_dehydration':
+          'गंभीर पानी की कमी। तुरंत रेफ़र करें; मरीज़ पी सके तो रास्ते में घूँट-घूँट ORS दें।',
+      's_some_dehydration':
+          'कुछ पानी की कमी: ORS प्लान B — स्वास्थ्य केंद्र पर 4 घंटे में लगभग 75 ml प्रति किलो, फिर दोबारा जाँचें। बच्चों को प्रोटोकॉल के अनुसार ज़िंक।',
+      'note_added_fever': '+ बुखार की वजह से {n} जाँचें जोड़ी गईं',
+      'note_added_cough': '+ खाँसी की वजह से साँस की {n} जाँचें जोड़ी गईं',
+      'note_added_diarrhea': '+ दस्त की वजह से पानी की कमी की {n} जाँचें जोड़ी गईं',
+      'note_added_cough_days': '+ लंबी खाँसी की वजह से TB की जाँच जोड़ी गई',
+      'note_skipped': '✓ {n} सवाल छोड़े — पहले ही समझ आ गए',
+      'note_level': '⚠ आकलन बदला: {level}',
+      'note_advice': '💊 सलाह बदली: {text}',
+      'assessment_title': 'लाइव आकलन',
+      'chat_start': 'मरीज़ के बारे में बताइए — क्या दिख या सुनाई दे रहा है? लिखें या माइक दबाएँ।',
+      'chat_understood': 'आपकी बात से यह समझ आया:',
+      'chat_understood_hint': 'जो गलत हो उस पर ✕ दबाएँ।',
+      'chat_also_understood': 'यह भी नोट किया:',
+      'chat_nothing': 'इससे लक्षण समझ नहीं आए, इसलिए एक-एक करके पूछते हैं।',
+      'chat_not_understood': 'माफ़ कीजिए, समझ नहीं आया। नीचे कोई विकल्प दबाएँ या दूसरे शब्दों में बताएँ।',
+      'chat_removed': 'हटा दिया — इसके बारे में सवाल पूछा जाएगा।',
+      'chat_input_hint': 'अपना जवाब लिखें…',
+      'chat_skip_describe': 'छोड़ें — सीधे सवाल पूछें',
+      'chat_done': 'धन्यवाद। सारांश तैयार हो रहा है…',
+      'label_fever': 'बुखार',
+      'label_fever_days': 'बुखार कब से',
+      'label_cough': 'खाँसी',
+      'label_cough_days': 'खाँसी कब से',
+      'label_diarrhea': 'दस्त',
+      'label_blood_in_stool': 'मल में खून',
+      'ack_yes_1': 'ठीक है, नोट कर लिया।',
+      'ack_yes_2': 'समझ गए।',
+      'ack_no_1': 'ठीक है।',
+      'ack_no_2': 'अच्छा।',
+      'ack_unsure': 'कोई बात नहीं, इसका ध्यान रखेंगे।',
+      'ack_choice': 'धन्यवाद।',
+      'ds_intro': 'अब कुछ ज़रूरी सुरक्षा सवाल।',
+      'qc_fever_days': 'आपने बुखार बताया। कितने दिन से है?',
+      'qc_cough_days': 'आपने खाँसी बताई। कब से है?',
+      'qc_blood_in_stool': 'आपने दस्त बताए। क्या मल में खून आ रहा है?',
+      'because_fever': 'बुखार है, इसलिए यह देखना ज़रूरी है:',
+      'because_cough': 'खाँसी है, इसलिए यह देखना ज़रूरी है:',
+      'because_diarrhea': 'दस्त हैं, इसलिए यह देखना ज़रूरी है:',
+      'q_ds_unconscious_child': 'क्या बच्चा बेहोश है, बहुत सुस्त है या जवाब नहीं दे रहा?',
+      'q_ds_convulsions_child': 'क्या बच्चे को दौरे (झटके) आए हैं?',
+      'q_ds_cannot_drink_child': 'क्या बच्चा कुछ पी नहीं पा रहा या माँ का दूध नहीं पी रहा?',
+      'q_ds_vomits_everything_child': 'क्या बच्चा जो भी खाता-पीता है, सब उल्टी कर देता है?',
+      'q_ds_breathing_child': 'क्या बच्चे को साँस लेने में बहुत तकलीफ़ है या साँस बहुत तेज़ है?',
+      'q_fever_child': 'क्या बच्चे को बुखार है?',
+      'q_cough_child': 'क्या बच्चे को खाँसी है?',
+      'q_diarrhea_child': 'क्या बच्चे को दस्त हो रहे हैं?',
 
       'sms_welcome': 'स्वास्थ्य सहायक। नंबर से जवाब दें।',
       'sms_yes_no_help': '1=हाँ 2=नहीं 3=पक्का नहीं',
@@ -243,7 +414,7 @@ class Strings {
       's_cough_tb': '2 हफ़्ते या ज़्यादा से खाँसी है। स्थानीय कार्यक्रम के अनुसार TB जाँच के लिए भेजें।',
       's_blood_stool': 'मल में खून है। डॉक्टर से जाँच ज़रूरी है।',
       's_diarrhea_ors':
-          'अपने प्रोटोकॉल के अनुसार ORS (और बच्चों को ज़िंक) दें। पानी की कमी के लक्षण देखें: धँसी आँखें, बहुत प्यास, चुटकी से खींची त्वचा धीरे लौटे।',
+          'पानी की कमी नहीं: घर पर ORS प्लान A — हर दस्त के बाद ORS, ज़्यादा तरल, खाना जारी रखें; बच्चों को प्रोटोकॉल के अनुसार 10–14 दिन ज़िंक।',
       's_common_checks': 'तापमान, साँस की गति और ऑक्सीजन (अगर पल्स ऑक्सीमीटर हो) जाँचें।',
       's_routine_observe':
           'कोई खतरे का लक्षण नहीं बताया गया। यहीं देखभाल जारी रखें और हालत बिगड़ने पर वापस आने को कहें।',

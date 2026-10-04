@@ -50,31 +50,102 @@ void main() {
     expect(find.byIcon(Icons.download), findsNothing); // no AI_MODEL_URL in tests
   });
 
-  testWidgets('description findings need a tick before questions are skipped', (tester) async {
-    LanguageService.current.value = 'en';
-    // No TTS engine in tests.
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-        .setMockMethodCallHandler(const MethodChannel('flutter_tts'), (_) async => 1);
+  group('chat consultation', () {
+    setUp(() {
+      LanguageService.current.value = 'en';
+      // No TTS engine in tests.
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(const MethodChannel('flutter_tts'), (_) async => 1);
+    });
 
-    await tester.pumpWidget(const MaterialApp(home: ConsultationScreen()));
-    await tester.enterText(find.byType(TextField), '3 din se bukhar aur khansi hai');
-    await tester.tap(find.text('Start questions'));
-    await tester.pumpAndSettle();
+    /// Tall screen so the whole chat stays built (ListView is lazy).
+    Future<void> openChat(WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1080, 4000);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.reset);
+      await tester.pumpWidget(const MaterialApp(home: ConsultationScreen()));
+    }
 
-    // Confirm step lists what was understood, all ticked.
-    expect(find.text('Understood from the description'), findsOneWidget);
-    expect(find.byType(CheckboxListTile), findsNWidgets(3));
+    Future<void> say(WidgetTester tester, String text) async {
+      await tester.enterText(find.byType(TextField), text);
+      await tester.tap(find.byIcon(Icons.send));
+      await tester.pumpAndSettle();
+    }
 
-    // Untick fever -> its duration is unticked too.
-    await tester.tap(find.text('Does the patient have fever?'));
-    await tester.pump();
-    final ticked = tester
-        .widgetList<CheckboxListTile>(find.byType(CheckboxListTile))
-        .where((c) => c.value == true);
-    expect(ticked, hasLength(1)); // only cough
+    testWidgets('description -> chips -> questions that follow what was said', (tester) async {
+      await openChat(tester);
+      await say(tester, 'bachche ko bukhar hai aur khansi 3 hafte se');
 
-    await tester.tap(find.text('Continue'));
-    await tester.pumpAndSettle();
-    expect(find.text('Age of the patient?'), findsOneWidget);
+      // Understood symptoms appear as removable chips in the same chat.
+      expect(find.text('From what you said, I understood:'), findsOneWidget);
+      expect(find.widgetWithText(InputChip, 'Fever'), findsOneWidget);
+      expect(find.widgetWithText(InputChip, 'Cough for: 2 weeks or more'), findsOneWidget);
+      expect(find.text('Age of the patient?'), findsOneWidget);
+      // Runtime changes are announced in the chat.
+      expect(find.text('✓ Skipping 2 questions — already understood'), findsOneWidget);
+      expect(find.text('+ Added 4 checks because of the fever'), findsOneWidget);
+      expect(find.text('+ Added 2 breathing checks because of the cough'), findsOneWidget);
+      expect(find.text('+ Added a TB check because the cough is long'), findsOneWidget);
+      expect(find.textContaining('💊 Advice updated:'), findsWidgets);
+      expect(find.textContaining('Live assessment: Clinician review needed'), findsOneWidget);
+
+      // Tap an answer...
+      await tester.tap(find.widgetWithText(ElevatedButton, '2 months – 5 years'));
+      await tester.pumpAndSettle();
+      expect(find.text('Thanks. You mentioned fever. For how many days has it been there?'),
+          findsOneWidget);
+
+      // ...or type it in your own words.
+      await say(tester, '2 din se');
+      expect(
+        find.text('Thanks. Now a few important safety questions. Since there is fever, '
+            'please check: Is the child unconscious, very drowsy or not responding?'),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('removing a wrong finding drops it and its follow-up', (tester) async {
+      await openChat(tester);
+      await say(tester, 'fever for 3 days');
+      expect(find.byType(InputChip), findsNWidgets(2));
+
+      // The chip's delete (✕) icon.
+      await tester.tap(find
+          .descendant(of: find.widgetWithText(InputChip, 'Fever'), matching: find.byType(Icon))
+          .last);
+      await tester.pumpAndSettle();
+      expect(find.byType(InputChip), findsNothing);
+      expect(find.text("Removed — I'll ask about it."), findsOneWidget);
+    });
+
+    testWidgets('dehydration checks change the advice live', (tester) async {
+      await openChat(tester);
+      await say(tester, 'bachche ko dast ho rahe hain');
+      expect(find.text('+ Added 5 dehydration checks because of the loose motions'),
+          findsOneWidget);
+      await tester.tap(find.widgetWithText(ElevatedButton, '2 months – 5 years'));
+      await tester.pumpAndSettle();
+      // blood in stool, then the 5 danger signs: all "No".
+      for (var i = 0; i < 6; i++) {
+        await tester.tap(find.widgetWithText(ElevatedButton, 'No'));
+        await tester.pumpAndSettle();
+      }
+      expect(find.textContaining('Live assessment: Routine care'), findsOneWidget);
+      // Sunken eyes: yes; thirsty: yes -> "some dehydration" -> Plan B.
+      await tester.tap(find.widgetWithText(ElevatedButton, 'Yes'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.widgetWithText(ElevatedButton, 'Yes'));
+      await tester.pumpAndSettle();
+      expect(find.text('⚠ Assessment changed: Clinician review needed'), findsOneWidget);
+      expect(find.textContaining('ORS Plan B'), findsOneWidget);
+    });
+
+    testWidgets('typed answer that is not understood gets a gentle retry', (tester) async {
+      await openChat(tester);
+      await tester.tap(find.text('Skip — just ask me'));
+      await tester.pumpAndSettle();
+      await say(tester, 'banana');
+      expect(find.textContaining("Sorry, I didn't get that."), findsOneWidget);
+    });
   });
 }

@@ -1,4 +1,5 @@
 import 'consultation_model.dart';
+import 'local_ai_service.dart';
 
 /// Compact, PII-free SMS encoding of a consultation, e.g.
 ///   "HAI1 a1b2c3 U A1 D1N D2N D3N D4N D5Y"
@@ -20,6 +21,16 @@ class SmsCodec {
     'cough_days': 'CD',
     'diarrhea': 'DI',
     'blood_in_stool': 'BS',
+    'fever_stiff_neck': 'SN',
+    'fever_rash': 'RA',
+    'malaria_test': 'MT',
+    'cough_fast_breathing': 'FB',
+    'chest_indrawing': 'CI',
+    'tb_symptoms': 'TB',
+    'dehyd_sunken_eyes': 'SE',
+    'dehyd_thirsty': 'TH',
+    'dehyd_skin_pinch': 'SP',
+    'dehyd_restless': 'RS',
   };
 
   static const Map<String, String> _valueCodes = {
@@ -34,6 +45,12 @@ class SmsCodec {
     'd_7_plus': '7',
     'c_lt_14': '1',
     'c_14_plus': '14',
+    'rdt_positive': '+',
+    'rdt_negative': '-',
+    'rdt_not_done': '0',
+    'pinch_normal': '1',
+    'pinch_slow': '2',
+    'pinch_very_slow': '3',
   };
 
   static const Map<TriageLevel, String> _levelCodes = {
@@ -87,10 +104,10 @@ class SmsCodec {
     return out;
   }
 
-  static bool _validValueFor(String questionId, String value) => switch (questionId) {
-        'age_group' => value.startsWith('age_'),
-        'fever_days' => value.startsWith('d_'),
-        'cough_days' => value.startsWith('c_'),
-        _ => const ['yes', 'no', 'unsure'].contains(value),
-      };
+  static bool _validValueFor(String questionId, String value) {
+    final q = LocalAIService.questionBank.firstWhere((q) => q.id == questionId);
+    return q.type == QuestionType.choice
+        ? q.options.contains(value)
+        : const ['yes', 'no', 'unsure'].contains(value);
+  }
 }

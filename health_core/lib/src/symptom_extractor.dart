@@ -58,7 +58,7 @@ class SymptomExtractor {
       final clause = rawClause.trim();
       if (clause.isEmpty || _hasNegation(clause)) continue;
 
-      final days = _durationInDays(clause);
+      final days = durationInDays(clause);
       _keywords.forEach((symptomId, words) {
         if (!words.any(clause.contains)) return;
         result[symptomId] = 'yes';
@@ -76,7 +76,8 @@ class SymptomExtractor {
   static bool _hasNegation(String clause) =>
       clause.split(RegExp(r'\s+')).any(_negations.contains);
 
-  static int? _durationInDays(String clause) {
+  /// Days described in [clause] ("3 din", "two weeks", "since yesterday").
+  static int? durationInDays(String clause) {
     for (final match in _duration.allMatches(clause)) {
       final n = int.tryParse(match.group(1)!) ?? _numberWords[match.group(1)!];
       if (n == null) continue; // e.g. "pichle hafte" — try phrases below

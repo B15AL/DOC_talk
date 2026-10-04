@@ -2,6 +2,7 @@
 library;
 
 export 'src/consultation_model.dart';
+export 'src/conversation.dart';
 export 'src/llm_extraction.dart';
 export 'src/local_ai_service.dart';
 export 'src/sms_codec.dart';

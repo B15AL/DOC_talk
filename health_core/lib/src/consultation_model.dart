@@ -23,12 +23,18 @@ class Question {
   /// WHO IMCI-style general danger sign: a "yes" ends questioning early.
   final bool isDangerSign;
 
+  /// Extra check added at runtime only when the symptom in [showIf] was
+  /// reported (e.g. dehydration checks after "loose motions"). Asked after
+  /// the danger signs.
+  final bool isAssessment;
+
   const Question({
     required this.id,
     this.type = QuestionType.yesNo,
     this.options = const [],
     this.showIf = const {},
     this.isDangerSign = false,
+    this.isAssessment = false,
   });
 }
 

@@ -10,6 +10,8 @@ class _Session {
   final String freeText;
   final LocalAIService ai = LocalAIService();
   Question? current;
+  String? lastAnswer;
+  int turn = 0;
   DateTime lastActive;
 
   _Session(this.lang, this.freeText, this.lastActive);
@@ -87,6 +89,7 @@ class ConversationManager {
       return [_ask(session, intro: Strings.of(session.lang, 'sms_invalid'))];
     }
     session.ai.answer(q.id, value);
+    session.lastAnswer = value;
     if (session.ai.nextQuestion() != null) return [_ask(session)];
 
     _sessions.remove(from);
@@ -104,27 +107,14 @@ class ConversationManager {
             for (var i = 0; i < q.options.length; i++)
               '${i + 1}=${t('opt_${q.options[i]}')}',
           ].join('\n');
-    return [if (intro != null) intro, t('q_${q.id}'), help].join('\n');
+    final text = QuestionPhrasing.phrase(s.lang, q, s.ai,
+        previousAnswer: s.lastAnswer, turn: s.turn++);
+    return [if (intro != null) intro, text, help].join('\n');
   }
 
-  static const _yes = {'1', 'y', 'yes', 'ha', 'haa', 'haan', 'han', 'ji', 'हाँ', 'हां', 'हा'};
-  static const _no = {'2', 'n', 'no', 'nahi', 'nahin', 'nai', 'नहीं', 'नही', 'ना'};
-  static const _unsure = {
-    '3', '?', 'not sure', 'unsure', 'pata nahi', 'pta nahi', 'पता नहीं', 'पक्का नहीं',
-  };
-
-  /// Accepts the number or a yes/no word; null if not understood.
-  static String? parseAnswer(Question q, String reply) {
-    final r = reply.trim().toLowerCase().replaceAll(RegExp(r'[.!।]+$'), '');
-    if (q.type == QuestionType.choice) {
-      final n = int.tryParse(r);
-      return n != null && n >= 1 && n <= q.options.length ? q.options[n - 1] : null;
-    }
-    if (_unsure.contains(r)) return Answer.unsure.name;
-    if (_yes.contains(r)) return Answer.yes.name;
-    if (_no.contains(r)) return Answer.no.name;
-    return null;
-  }
+  /// Accepts the number or words ("haan", "5 din"); null if not understood.
+  static String? parseAnswer(Question q, String reply) =>
+      AnswerParser.parse(q, reply, digitsAreOptions: true);
 
   Future<String> _finish(String from, _Session s, DateTime now) async {
     String t(String key) => Strings.of(s.lang, key);

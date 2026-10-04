@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:health_core/health_core.dart';
 
 import '../services/ai_model_service.dart';
 import '../services/language_service.dart';
@@ -14,27 +13,6 @@ class AiModelScreen extends StatefulWidget {
 
 class _AiModelScreenState extends State<AiModelScreen> {
   final AiModelService ai = AiModelService.instance;
-  final TextEditingController tryController = TextEditingController();
-  Map<String, String>? tryResult;
-  bool trying = false;
-
-  @override
-  void dispose() {
-    tryController.dispose();
-    super.dispose();
-  }
-
-  Future<void> _try() async {
-    FocusScope.of(context).unfocus();
-    setState(() => trying = true);
-    final result = await ai.extract(tryController.text);
-    if (mounted) {
-      setState(() {
-        trying = false;
-        tryResult = result;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,10 +54,6 @@ class _AiModelScreenState extends State<AiModelScreen> {
               ),
               const SizedBox(height: 12),
               _statusAndActions(),
-              if (ai.usable) ...[
-                const Divider(height: 40),
-                _tryIt(),
-              ],
             ],
           ],
         ),
@@ -146,42 +120,6 @@ class _AiModelScreenState extends State<AiModelScreen> {
             label: Text(t('ai_delete')),
             onPressed: ai.delete,
           ),
-      ],
-    );
-  }
-
-  Widget _tryIt() {
-    const t = LanguageService.t;
-    final lang = LanguageService.current.value;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Text(t('ai_try'), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-        const SizedBox(height: 8),
-        TextField(
-          controller: tryController,
-          maxLines: 2,
-          decoration: InputDecoration(
-            hintText: t('describe_hint'),
-            border: const OutlineInputBorder(),
-          ),
-        ),
-        const SizedBox(height: 8),
-        ElevatedButton(
-          onPressed: trying ? null : _try,
-          child: trying
-              ? const SizedBox(
-                  height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2))
-              : Text(t('ai_try_button')),
-        ),
-        if (tryResult != null) ...[
-          const SizedBox(height: 12),
-          if (tryResult!.isEmpty)
-            Text(t('ai_nothing'))
-          else
-            for (final e in tryResult!.entries)
-              Text('✓ ${t('q_${e.key}')}  →  ${Strings.answerLabel(lang, e.value)}'),
-        ],
       ],
     );
   }

@@ -41,8 +41,10 @@ void main() {
   });
 
   test('full routine conversation ends with disclaimer and is stored', () async {
-    // age 3 (>5y), 5 danger signs no, cough no, diarrhea no (fever pre-filled)
-    final reply = await chat(['fever for 2 days', '3', '2', '2', '2', '2', '2', '2', '2']);
+    // age 3 (>5y), 5 danger signs no, fever checks added at runtime (stiff
+    // neck no, rash no, malaria test 3 = not done), cough no, diarrhea no.
+    final reply = await chat(
+        ['fever for 2 days', '3', '2', '2', '2', '2', '2', '2', '2', '3', '2', '2']);
     expect(reply, contains('ROUTINE CARE'));
     expect(reply, contains('This is only a suggestion'));
     final saved = File('${tmp.path}/sms_consultations.jsonl').readAsLinesSync();
@@ -53,7 +55,8 @@ void main() {
   });
 
   test('Hindi danger sign -> urgent referral immediately', () async {
-    final reply = await chat(['बच्चे को बुखार है', '2', 'haan']);
+    // age -> "how many days?" (follow-up on the fever) -> first danger sign
+    final reply = await chat(['बच्चे को बुखार है', '2', '2', 'haan']);
     expect(reply, contains(Strings.of('hi', 'level_urgentReferral')));
     expect(reply, contains(Strings.of('hi', 'disclaimer')));
   });

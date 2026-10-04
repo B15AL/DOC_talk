@@ -26,9 +26,15 @@ class KeywordAnswerExtractor implements AnswerExtractor {
 /// and only positive findings are kept — same rules as [SymptomExtractor].
 class LlmExtraction {
   /// question id -> values the model may set.
+  /// Only the fields the fine-tuned model was trained on. Danger signs and
+  /// added checks (dehydration, breathing...) are always asked.
+  static const extractable = [
+    'fever', 'fever_days', 'cough', 'cough_days', 'diarrhea', 'blood_in_stool',
+  ];
+
   static final Map<String, List<String>> allowed = {
     for (final q in LocalAIService.questionBank)
-      if (!q.isDangerSign && q.id != 'age_group')
+      if (extractable.contains(q.id))
         q.id: q.type == QuestionType.choice ? q.options : const ['yes'],
   };
 
