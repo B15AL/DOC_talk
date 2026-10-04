@@ -1,5 +1,8 @@
 
 # Small AI Health Assistant (DOC_talk)
+# here is my website link 
+   Click [here to visit my website](https://bishaldoctalk.lovable.app/).
+
 
 **Offline-first AI helper for community health workers in rural areas.**
 
